@@ -26,9 +26,6 @@
   template = ~/.gitmessage
 [fetch]
   prune = true
-[user]
-	name = Tyrel Souza
-	email = tyrelsouza@gmail.com
 [filter "media"]
 	clean = git media clean %f
 	smudge = git media smudge %f
