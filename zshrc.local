@@ -1,4 +1,6 @@
 # User configuration Exports
+export LC_ALL=C
+export LANG=en_US.UTF-8
 export NPM_PACKAGES="${HOME}/.npm-packages"
 export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 export GOPATH=$HOME/go
@@ -10,7 +12,7 @@ export PROJECT_HOME=$HOME/Devel
 export PATH="$HOME/bin:$HOME/.rvm.bin:$NPM_PACKAGES/bin:$GOPATH/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH"
 
 # Sourcing aliases and functions
-source /usr/local/bin/virtualenvwrapper_lazy.sh
+source /usr/bin/virtualenvwrapper_lazy.sh
 source ~/.bash_aliases
 
 # Unset manpath so we can inherit from /etc/manpath via the `manpath`
