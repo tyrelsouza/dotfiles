@@ -1,13 +1,17 @@
 #!/bin/bash
-ln -s bash_aliases ~/.bash_aliases 
-ln -s gitconfig ~/.gitconfig 
-ln -s gitignore ~/.gitignore 
-ln -s hushlogin ~/.hushlogin 
-ln -s README.md ~/.README.md 
-ln -s vim ~/.vim 
-ln -s vimrc ~/.vimrc 
-ln -s vimrc.bundles ~/.vimrc.bundles 
-ln -s vimrc.bundles.local ~/.vimrc.bundles.local 
-ln -s vimrc.local ~/.vimrc.local 
-ln -s zshrc ~/.zshrc 
-ln -s zshrc.local ~/.zshrc.local 
+
+ln -s $(pwd)/bash_aliases ~/.bash_aliases 
+ln -s $(pwd)/gitconfig ~/.gitconfig 
+ln -s $(pwd)/gitignore ~/.gitignore 
+ln -s $(pwd)/hushlogin ~/.hushlogin 
+ln -s $(pwd)/vim ~/.vim 
+ln -s $(pwd)/vimrc ~/.vimrc 
+ln -s $(pwd)/vimrc.bundles ~/.vimrc.bundles 
+ln -s $(pwd)/vimrc.bundles.local ~/.vimrc.bundles.local 
+ln -s $(pwd)/vimrc.local ~/.vimrc.local 
+ln -s $(pwd)/zshrc ~/.zshrc 
+ln -s $(pwd)/zshrc.local ~/.zshrc.local 
+
+rm -rf ~/.vim/bundle/Vundle.vim
+git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
+vim +PluginInstall +qall
