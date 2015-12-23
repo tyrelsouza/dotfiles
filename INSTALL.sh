@@ -12,6 +12,8 @@ ln -s $(pwd)/vimrc.local ~/.vimrc.local
 ln -s $(pwd)/zshrc ~/.zshrc 
 ln -s $(pwd)/zshrc.local ~/.zshrc.local 
 
+# Setup vim
 rm -rf ~/.vim/bundle/Vundle.vim
+mkdir -p ~/.vim/bundle
 git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
 vim +PluginInstall +qall
