@@ -9,4 +9,3 @@ ex:
 ## Script
 Just run ```dotfiles/INSTALL.sh```
 
-Note: All commit messages here are generated from whatthecommit.com
