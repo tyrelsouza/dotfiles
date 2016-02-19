@@ -1,10 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/Library/StartupItems/SpoofMAC'
-let g:netrw_dirhist_2='/Users/tsouza'
-let g:netrw_dirhist_3='/Users/tsouza/RubymineProjects/roadmap/.git'
-let g:netrw_dirhist_4='/Users/tsouza/.ssh'
-let g:netrw_dirhist_5='/Users/tsouza/code/sshui'
-let g:netrw_dirhist_6='/Users/tsouza/.oh-my-zsh'
-let g:netrw_dirhist_7='/Users/tsouza/PycharmProjects/addgene-core'
-let g:netrw_dirhist_8='/Users/tsouza/.ssh'
+let g:netrw_dirhist_cnt =0
