@@ -4,7 +4,6 @@
 .env
 db/*.sqlite3
 log/*.log
-rerun.txt
 tags
 tmp/**/*
 !tmp/cache/.keep
