@@ -7,7 +7,6 @@ ln -s $(pwd)/hushlogin ~/.hushlogin
 ln -s $(pwd)/vim ~/.vim 
 ln -s $(pwd)/vimrc ~/.vimrc 
 ln -s $(pwd)/vimrc.bundles ~/.vimrc.bundles 
-ln -s $(pwd)/vimrc.local ~/.vimrc.local 
 ln -s $(pwd)/zshrc ~/.zshrc 
 
 # Setup vim
