@@ -18,6 +18,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
 
 " do mac specific stuff
 if has("unix")

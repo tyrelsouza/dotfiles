@@ -3,8 +3,8 @@
 set nocompatible
 
 syntax on
-syntax enable
 colorscheme monokai
+set noshowmode
 
 " Leader
 let mapleader = " "
