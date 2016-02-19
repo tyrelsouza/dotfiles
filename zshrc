@@ -5,8 +5,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 
-
-# User configuration Exports
+export EDITOR=vim
 export LC_ALL=C
 export LANG=en_US.UTF-8
 export NPM_PACKAGES="${HOME}/.npm-packages"
@@ -22,10 +21,6 @@ export PATH="$HOME/bin:$HOME/.rvm.bin:$NPM_PACKAGES/bin:$GOPATH/bin:/usr/local/b
 # Sourcing aliases and functions
 source ~/.bash_aliases
 
-# Unset manpath so we can inherit from /etc/manpath via the `manpath`
-# command
-unset MANPATH # delete if you already modified MANPATH elsewhere in your config
-MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
 function adg {
     workon addgene
