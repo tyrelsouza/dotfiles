@@ -1,12 +1,12 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 plugins=(git brew sudo github django python pip)
-ZSH_THEME="wezm"
+ZSH_THEME="candy"
 source $ZSH/oh-my-zsh.sh
 
 
 export EDITOR=vim
-export LC_ALL=C
+export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export NPM_PACKAGES="${HOME}/.npm-packages"
 export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
@@ -34,7 +34,10 @@ alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
 alias ag='\ag --pager="less"'
 
 
-ssh-add /Users/tyrelsouza/.ssh/id_addgene
+if [ -z "$SSH_AUTH_SOCK" ] ; then
+  eval `ssh-agent -s`
+  ssh-add
+fi
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -49,11 +52,11 @@ fi
 export GREP_OPTIONS="--color=auto --exclude=*.pyc --exclude-dir=.git"
 export MP_FULLNAME="Tyrel Souza"
 
-function adg() {
+function adg () {
     workon addgene-core
 }
 
-function cpbr {
+function cpbr () {
     if branch=$(git symbolic-ref --short -q HEAD)
     then
       printf "$branch" | pbcopy
@@ -63,14 +66,8 @@ function cpbr {
     fi
 }
 function hidden() { ls -a "$@" | grep '^\.'; }
-function uploadphotos(){ scp -rp "$1" vps:photos/$2; }
-function upload_ss(){
-  MD5=$(md5 -q $1)
-  E= $1|awk -F . '{print $NF}'
-  F= $MD5$EXT
-  echo $MD5 $E $F
-  #uploadphotos $1 $fname
-}
+ 
+
 
 
 alias hideprev='history -d $((HISTCMD-2)) && history -d $((HISTCMD-1))' # Hide the previous command you just ran and forgot to use space.

@@ -10,7 +10,16 @@ ln -s $(pwd)/vimrc.bundles ~/.vimrc.bundles
 ln -s $(pwd)/zshrc ~/.zshrc 
 
 # Setup vim
-rm -rf ~/.vim/bundle/Vundle.vim
 mkdir -p ~/.vim/bundle
-git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
-vim +PluginInstall +qall
+cd ~/.vim/bundle
+# Put Bundles Here
+git clone https://github.com/kien/ctrlp.vim.git
+git clone https://github.com/scrooloose/nerdtree.git
+git clone https://github.com/danro/rename.vim.git
+git clone https://github.com/scrooloose/syntastic.git
+git clone https://github.com/vim-airline/vim-airline.git
+git clone https://github.com/vim-airline/vim-airline-themes.git
+git clone https://github.com/croaky/vim-colors-github.git
+git clone https://github.com/pbrisbin/vim-mkdir.git
+git clone https://github.com/tpope/vim-surround.git
+

@@ -1,6 +1,7 @@
 " Use Vim settings, rather then Vi settings. This setting must be as early as
 " possible, as it has side effects.
 set nocompatible
+execute pathogen#infect()
 
 syntax on
 colorscheme monokai
@@ -55,14 +56,11 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='base16'
 let g:tmuxline_powerline_separators = 0
+
+
+
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
-
-
-
-if filereadable(expand("~/.vimrc.bundles"))
-  source ~/.vimrc.bundles
-endif
 
 filetype plugin indent on
 
@@ -97,29 +95,17 @@ if executable('ag')
 endif
 
 
+" Toggle line numbers with F1 - no more stupid help!
 nmap <silent> <F1> :set invnumber<CR>
 "NerdTree, show if open vim without file
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 nmap <C-n> :NERDTreeToggle<CR>
 
 
-
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
 
 autocmd StdinReadPre * let s:std_in=1
-
-autocmd FileType go setlocal shiftwidth=8 tabstop=8
-
-filetype plugin on
-
-" Highlight
-let g:go_disable_autoinstall = 0
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
 
 
 

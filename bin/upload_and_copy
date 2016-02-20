@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+
+MD5=($(md5sum "$@" | cut -d ' ' -f 1))
+fname=$MD5."${1##*.}"
+scp -rp "$1" tyrelsouza.com:/var/www/html/screenshots/$fname;
+echo https://tyrelsouza.com/screenshots/$fname | xsel --clipboard --input
+rm "$1"
