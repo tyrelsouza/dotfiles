@@ -1,9 +1,15 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 plugins=(git brew sudo github django python pip)
-ZSH_THEME="candy"
-source $ZSH/oh-my-zsh.sh
 
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    ZSH_THEME="soliah"
+else
+    ZSH_THEME="candy"
+    ZSH_THEME="jonathan"
+fi
+
+source $ZSH/oh-my-zsh.sh
 
 export EDITOR=vim
 export LC_ALL=en_US.UTF-8
@@ -36,7 +42,8 @@ alias ag='\ag --pager="less"'
 
 if [ -z "$SSH_AUTH_SOCK" ] ; then
   eval `ssh-agent -s`
-  ssh-add
+  ssh-add ~/.ssh/id_rsa
+  ssh-add ~/.ssh/id_addgene
 fi
 
 # Uncomment the following line to display red dots whilst waiting for completion.
