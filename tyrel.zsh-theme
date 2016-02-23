@@ -1,5 +1,5 @@
 function virtualenv_info {
-    [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
+    [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`')'
 }
 
 function theme_precmd {
