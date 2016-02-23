@@ -7,6 +7,8 @@ if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
 else
     ZSH_THEME="candy"
     ZSH_THEME="jonathan"
+    ZSH_THEME="dstufft"
+    export VIRTUAL_ENV_DISABLE_PROMPT=1
 fi
 
 source $ZSH/oh-my-zsh.sh
