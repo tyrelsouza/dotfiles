@@ -8,6 +8,7 @@ ln -s $(pwd)/vim ~/.vim
 ln -s $(pwd)/vimrc ~/.vimrc 
 ln -s $(pwd)/vimrc.bundles ~/.vimrc.bundles 
 ln -s $(pwd)/zshrc ~/.zshrc 
+ln -s $(pwd)/tyrel.zsh-theme ~/.oh-my-zsh/themes/tyrel.zsh-theme
 
 # Setup vim
 mkdir -p ~/.vim/bundle

@@ -5,9 +5,8 @@ plugins=(git brew sudo github django python pip)
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     ZSH_THEME="soliah"
 else
-    ZSH_THEME="candy"
-    ZSH_THEME="jonathan"
-    ZSH_THEME="dstufft"
+    #ZSH_THEME="candy"
+    ZSH_THEME="tyrel"
     export VIRTUAL_ENV_DISABLE_PROMPT=1
 fi
 
