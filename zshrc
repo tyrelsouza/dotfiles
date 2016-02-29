@@ -41,7 +41,7 @@ alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
 alias ag='\ag --pager="less"'
 
 if [ -e ~/.ssh/id_rsa ];then
-  ssh-add ~/.ssh/id_rsa
+  ssh-add ~/.ssh/id_addgene
 fi
 
 if [ -z "$SSH_AUTH_SOCK" ] ; then
