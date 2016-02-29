@@ -40,6 +40,9 @@ alias cg='cd "$(git rev-parse --show-toplevel)"'
 alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
 alias ag='\ag --pager="less"'
 
+if [ -e ~/.ssh/id_rsa ];then
+  ssh-add ~/.ssh/id_rsa
+fi
 
 if [ -z "$SSH_AUTH_SOCK" ] ; then
   eval `ssh-agent -s`
@@ -57,7 +60,6 @@ export ADDGENE_CORE_REPO_DIR=/Users/tyrelsouza/AddGeneProjects/addgene-core
 if [ -d "/Applications/VMware Fusion.app/Contents/Library" ]; then
     export PATH=$PATH:"/Applications/VMware Fusion.app/Contents/Library"
 fi
-export GREP_OPTIONS="--color=auto --exclude=*.pyc --exclude-dir=.git"
 export MP_FULLNAME="Tyrel Souza"
 
 function adg () {
