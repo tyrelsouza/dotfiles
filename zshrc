@@ -82,3 +82,6 @@ function hidden() { ls -a "$@" | grep '^\.'; }
 
 alias hideprev='history -d $((HISTCMD-2)) && history -d $((HISTCMD-1))' # Hide the previous command you just ran and forgot to use space.
 #let g:user_emmet_leader_key='<C-Z>'
+if [ -e ~/.zshrc.local ];then
+  source ~/.zshrc.local
+fi

@@ -1,36 +1,43 @@
-[push]
-  default = current
-[color]
-  ui = auto
-[alias]
-  aa = add --all
-  ap = add --patch
-  ca = commit --amend
-  ci = commit -v
-  co = checkout
-  co-pr = !sh -c 'git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1' -
-  create-branch = !sh -c 'git push origin HEAD:refs/heads/$1 && git fetch origin && git branch --track $1 origin/$1 && cd . && git checkout $1' -
-  delete-branch = !sh -c 'git push origin :refs/heads/$1 && git branch -D $1' -
-  merge-branch = !git checkout master && git merge @{-1}
-  pr = !hub pull-request
-  st = status
-  up = !git fetch origin && git rebase origin/master
-  glate = for-each-ref --sort=-committerdate refs/heads/ --format='%(refname) %(committerdate) %(authorname)'
 [core]
-  excludesfile = ~/.gitignore
-  autocrlf = input
-[merge]
-  ff = only
-[include]
-  path = .gitconfig.local
-[commit]
-  template = ~/.gitmessage
-[fetch]
-  prune = true
-[filter "media"]
-	clean = git media clean %f
-	smudge = git media smudge %f
-	required = true
+	excludesfile = ~/.gitignore_global
 [user]
-	email = tyrelsouza@gmail.com
-	name = Tyrel Souza
+    email = tyrelsouza@gmail.com
+    name = Tyrel Souza
+	signingkey = 8A2DDEE2
+[push]
+	default = simple
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[diff]
+	tool = diffmerge
+[difftool "diffmerge"]
+	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
+[merge]
+	tool = diffmerge
+[mergetool "diffmerge"]
+	cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
+	trustExitCode = true
+[difftool]
+	prompt = false
+[difftool "delta"]
+	cmd = delta \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+[alias]
+    ls = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+    #files = log --numstat --pretty=format:"[%cn]"
+    files = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    logtree=  "log --graph --oneline --decorate --all"
+    alias = "!git config -l | grep alias | cut -c 7-"
+    recent = "!git for-each-ref --format=\"%(committerdate:relative) | %(refname)\" --sort=-committerdate refs/heads | sed '/master/d' | head -n 10"
+    tabsescape = "!git diff --color | sed 's/\\t/\\\\t/g'"
+    tabs = "!git diff --color | sed 's/\\t/⌑/g'"
+    v=describe --tags --match 'v*'
+    st = status
+    ci = commit -v
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[commit]
+	gpgsign = true

@@ -1,4 +1,6 @@
 *.DS_Store
+.tags
+.tags_sorted*
 *.sw[nop]
 .bundle
 .env
