@@ -6,6 +6,9 @@
 	signingkey = 8A2DDEE2
 [commit]
     gpgsign = true
+[color]
+  ui = auto # covers diff = true, status = auto, branch = auto
+  interactive = auto
 [push]
 	default = simple
 [format]
@@ -13,6 +16,8 @@
 [alias]
     # show all these aliases
     alias = "!git config -l | grep alias | cut -c 7-"
+    # Way more information on git log
+    ll = log --stat --abbrev-commit
     # Show files modified per commit
     files = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
     # show a tree with branches merging 
@@ -25,6 +30,8 @@
     v=describe --tags --match 'v*'
     # alias like `hg st`, because I like st, shorter is nice!
     st = status
+    # prettier diffs
+    d = diff --color-words
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f

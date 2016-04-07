@@ -39,6 +39,7 @@ source ~/.bash_aliases
 alias cg='cd "$(git rev-parse --show-toplevel)"'
 alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
 alias ag='\ag --pager="less"'
+alias g='git'
 
 if [ -e ~/.ssh/id_rsa ];then
   ssh-add ~/.ssh/id_addgene
