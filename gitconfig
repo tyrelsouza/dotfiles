@@ -23,10 +23,12 @@
 	prompt = false
 [difftool "delta"]
 	cmd = delta \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+[format]
+    pretty = format:%C(auto)%h %C(cyan)%G? %C(green)%<(15,trunc)%aN %C(dim magenta)%<(15,trunc)%ar %C(white)%<(60,trunc)%s %C(auto)%d
 [alias]
     ls = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
-    #files = log --numstat --pretty=format:"[%cn]"
     files = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    files2 = log --numstat --pretty=format:"[%cn]"
     logtree=  "log --graph --oneline --decorate --all"
     alias = "!git config -l | grep alias | cut -c 7-"
     recent = "!git for-each-ref --format=\"%(committerdate:relative) | %(refname)\" --sort=-committerdate refs/heads | sed '/master/d' | head -n 10"
@@ -34,7 +36,6 @@
     tabs = "!git diff --color | sed 's/\\t/⌑/g'"
     v=describe --tags --match 'v*'
     st = status
-    ci = commit -v
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
