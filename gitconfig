@@ -4,41 +4,28 @@
     email = tyrelsouza@gmail.com
     name = Tyrel Souza
 	signingkey = 8A2DDEE2
+[commit]
+    gpgsign = true
 [push]
 	default = simple
-[filter "hawser"]
-	clean = git hawser clean %f
-	smudge = git hawser smudge %f
-	required = true
-[diff]
-	tool = diffmerge
-[difftool "diffmerge"]
-	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
-[merge]
-	tool = diffmerge
-[mergetool "diffmerge"]
-	cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
-	trustExitCode = true
-[difftool]
-	prompt = false
-[difftool "delta"]
-	cmd = delta \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 [format]
-    pretty = format:%C(auto)%h %C(cyan)%G? %C(green)%<(15,trunc)%aN %C(dim magenta)%<(15,trunc)%ar %C(white)%<(60,trunc)%s %C(auto)%d
+    pretty = format:%C(auto)%h %C(green)%G? %C(red)%<(15,trunc)%aN %C(cyan)%<(15,trunc)%ar %C(white)%<(60,trunc)%s %C(auto)%d
 [alias]
-    ls = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
-    files = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-    files2 = log --numstat --pretty=format:"[%cn]"
-    logtree=  "log --graph --oneline --decorate --all"
+    # show all these aliases
     alias = "!git config -l | grep alias | cut -c 7-"
+    # Show files modified per commit
+    files = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    # show a tree with branches merging 
+    logtree=  "log --graph --oneline --decorate --all"
+    # get the most 10 recent branches worked on
     recent = "!git for-each-ref --format=\"%(committerdate:relative) | %(refname)\" --sort=-committerdate refs/heads | sed '/master/d' | head -n 10"
-    tabsescape = "!git diff --color | sed 's/\\t/\\\\t/g'"
-    tabs = "!git diff --color | sed 's/\\t/⌑/g'"
+    # show tabs with ⌑ replacing tabs
+    tabs = "!git diff --color | sed 's/\t/⌑/g'"
+    # show the current version tag
     v=describe --tags --match 'v*'
+    # alias like `hg st`, because I like st, shorter is nice!
     st = status
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
-[commit]
-	gpgsign = true
