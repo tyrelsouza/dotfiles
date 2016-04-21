@@ -1,16 +1,16 @@
 [core]
-	excludesfile = ~/.gitignore_global
+    excludesfile = ~/.gitignore_global
 [user]
     email = tyrelsouza@gmail.com
     name = Tyrel Souza
-	signingkey = 8A2DDEE2
+    signingkey = 8A2DDEE2
 [commit]
     gpgsign = true
 [color]
-  ui = auto # covers diff = true, status = auto, branch = auto
-  interactive = auto
+    ui = auto # covers diff = true, status = auto, branch = auto
+    interactive = auto
 [push]
-	default = simple
+    
 [format]
     pretty = format:%C(auto)%h %C(green)%G? %C(red)%<(15,trunc)%aN %C(cyan)%<(15,trunc)%ar %C(white)%<(60,trunc)%s %C(auto)%d
 [alias]
@@ -32,9 +32,9 @@
     st = status
     # prettier diffs
     d = diff --color-words
-	#push
-	p = push
+    #push
+    p = push
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+    clean = git-lfs clean %f
+    smudge = git-lfs smudge %f
+    required = true
