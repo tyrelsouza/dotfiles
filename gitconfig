@@ -32,6 +32,8 @@
     st = status
     # prettier diffs
     d = diff --color-words
+	#push
+	p = push
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f

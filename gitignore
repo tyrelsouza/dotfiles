@@ -9,3 +9,4 @@ log/*.log
 tags
 tmp/**/*
 !tmp/cache/.keep
+.pre-commit-config.yaml

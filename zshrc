@@ -86,3 +86,4 @@ alias hideprev='history -d $((HISTCMD-2)) && history -d $((HISTCMD-1))' # Hide t
 if [ -e ~/.zshrc.local ];then
   source ~/.zshrc.local
 fi
+alias vim=nvim
