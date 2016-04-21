@@ -10,7 +10,7 @@
     ui = auto # covers diff = true, status = auto, branch = auto
     interactive = auto
 [push]
-    
+    default = simple
 [format]
     pretty = format:%C(auto)%h %C(green)%G? %C(red)%<(15,trunc)%aN %C(cyan)%<(15,trunc)%ar %C(white)%<(60,trunc)%s %C(auto)%d
 [alias]
