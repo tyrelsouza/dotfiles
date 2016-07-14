@@ -6,6 +6,7 @@ execute pathogen#infect()
 syntax on
 colorscheme monokai
 set noshowmode
+set mouse-=a
 
 " Leader
 let mapleader = " "
@@ -102,11 +103,13 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 nmap <C-n> :NERDTreeToggle<CR>
 
 
-autocmd BufWinLeave *.* mkview
-autocmd BufWinEnter *.* silent loadview
+"autocmd BufWinLeave *.* mkview
+"autocmd BufWinEnter *.* silent loadview
 
 autocmd StdinReadPre * let s:std_in=1
 
+
+hi Normal ctermbg=none
 
 
 " Local config

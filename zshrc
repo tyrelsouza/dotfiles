@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-plugins=(git brew sudo github django python pip)
+plugins=(git brew sudo github django python pip dnf emoji cp vagrant virtualenv nmap rvm)
 
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     ZSH_THEME="soliah"
@@ -21,8 +21,8 @@ export GOPATH=$HOME/go
 export PHP_AUTOCONF="/usr/local/bin/autoconf"
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/AddGeneProjects
-source /usr/local/bin/virtualenvwrapper_lazy.sh
-source $HOME/bin/virtualenv-auto-activate.sh
+source /usr/bin/virtualenvwrapper.sh
+#source $HOME/bin/virtualenv-auto-activate.sh
 
 
 
@@ -55,7 +55,6 @@ fi
 COMPLETION_WAITING_DOTS="true"
 
 
-export ADDGENE_CORE_REPO_DIR=/Users/tyrelsouza/AddGeneProjects/addgene-core
 
 # VMware Fusion
 if [ -d "/Applications/VMware Fusion.app/Contents/Library" ]; then
@@ -87,3 +86,5 @@ if [ -e ~/.zshrc.local ];then
   source ~/.zshrc.local
 fi
 alias vim=nvim
+export VAGRANT_DEFAULT_PROVIDER=virtualbox
+source $HOME/.profile

@@ -6,7 +6,8 @@ ln -s $(pwd)/gitignore ~/.gitignore
 ln -s $(pwd)/hushlogin ~/.hushlogin 
 ln -s $(pwd)/vim ~/.vim 
 ln -s $(pwd)/vimrc ~/.vimrc 
-ln -s $(pwd)/vimrc.bundles ~/.vimrc.bundles 
+ln -s ~/.config/nvim ~/.vim
+ln -s ~/.config/nvim/init.vim ~/.vimrc
 ln -s $(pwd)/zshrc ~/.zshrc 
 ln -s $(pwd)/tyrel.zsh-theme ~/.oh-my-zsh/themes/tyrel.zsh-theme
 
