@@ -30,9 +30,9 @@ export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
 export LESS=' -R '
 
 
-export PATH="$HOME/bin:$HOME/.rvm.bin:$NPM_PACKAGES/bin:$GOPATH/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH"
+export PATH="$NPM_PACKAGES/bin:$GOPATH/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH"
 export PATH=/bin:/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/Users/tsouza/bin:/opt/local/bin:$PATH
-export PATH="$HOME/bin:$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$HOME/.rvm/bin:$HOME/bin:$PATH" # Add RVM to PATH for scripting
 
 # Sourcing aliases and functions
 source ~/.bash_aliases
@@ -85,6 +85,10 @@ alias hideprev='history -d $((HISTCMD-2)) && history -d $((HISTCMD-1))' # Hide t
 if [ -e ~/.zshrc.local ];then
   source ~/.zshrc.local
 fi
+
 alias vim=nvim
 export VAGRANT_DEFAULT_PROVIDER=virtualbox
+
+export PYENV_ROOT=/usr/local/var/pyenv
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 source $HOME/.profile

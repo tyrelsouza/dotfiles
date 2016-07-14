@@ -103,9 +103,6 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 nmap <C-n> :NERDTreeToggle<CR>
 
 
-"autocmd BufWinLeave *.* mkview
-"autocmd BufWinEnter *.* silent loadview
-
 autocmd StdinReadPre * let s:std_in=1
 
 

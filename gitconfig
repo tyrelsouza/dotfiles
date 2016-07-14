@@ -23,7 +23,7 @@
     # show a tree with branches merging 
     logtree=  "log --graph --oneline --decorate --all"
     # get the most 10 recent branches worked on
-    recent = "!git for-each-ref --format=\"%(committerdate:relative) | %(refname)\" --sort=-committerdate refs/heads | sed '/master/d' | head -n 10"
+    recent = "!git for-each-ref --format=\"%(committerdate:relative) | %(refname)\" --sort=-committerdate refs/heads | sed '/master/d' | head -n 15"
     # show tabs with ⌑ replacing tabs
     tabs = "!git diff --color | sed 's/\t/⌑/g'"
     # show the current version tag
@@ -34,7 +34,14 @@
     d = diff --color-words
     #push
     p = push
+	# Diff so fancy!
+    dsf = "!f() { [ \"$GIT_PREFIX\" != \"\" ] && cd "$GIT_PREFIX"; git diff --color $@ | diff-so-fancy | less --tabs=4 -RFX; }; f"
 [filter "lfs"]
     clean = git-lfs clean %f
     smudge = git-lfs smudge %f
     required = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
