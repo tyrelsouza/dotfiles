@@ -1,3 +1,4 @@
+# ported from https://github.com/robbyrussell/oh-my-zsh/blob/master/themes/jonathan.zsh-theme
 function virtualenv_info {
     [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`')'
 }
