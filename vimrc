@@ -113,3 +113,4 @@ hi Normal ctermbg=none
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
+set background=dark

@@ -10,7 +10,7 @@
     ui = auto # covers diff = true, status = auto, branch = auto
     interactive = auto
 [push]
-    default = simple
+	default = current
 [format]
     pretty = format:%C(auto)%h %C(green)%G? %C(red)%<(15,trunc)%aN %C(cyan)%<(15,trunc)%ar %C(white)%<(60,trunc)%s %C(auto)%d
 [alias]
@@ -34,7 +34,8 @@
     d = diff --color-words
     #push
     p = push
-	# Diff so fancy!
+    pr = !"pr() { git fetch origin pull/$1/head:pr-$1; git checkout pr-$1; }; pr"
+    # Diff so fancy!
     dsf = "!f() { [ \"$GIT_PREFIX\" != \"\" ] && cd "$GIT_PREFIX"; git diff --color $@ | diff-so-fancy | less --tabs=4 -RFX; }; f"
 [filter "lfs"]
     clean = git-lfs clean %f

@@ -1,71 +1,52 @@
-# Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-plugins=(git brew sudo github django python pip dnf emoji cp vagrant virtualenv nmap rvm)
-
+plugins=(git brew sudo github django python pip cp vagrant virtualenv nmap rvm)
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     ZSH_THEME="soliah"
 else
-    #ZSH_THEME="candy"
+    ZSH_THEME="candy"
     ZSH_THEME="tyrel"
     export VIRTUAL_ENV_DISABLE_PROMPT=1
 fi
-
 source $ZSH/oh-my-zsh.sh
+##### ^^^ Oh my ZSH ^^^^ #####
 
 export EDITOR=vim
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export NPM_PACKAGES="${HOME}/.npm-packages"
-export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 export GOPATH=$HOME/go
-export PHP_AUTOCONF="/usr/local/bin/autoconf"
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/AddGeneProjects
-source /usr/bin/virtualenvwrapper.sh
-#source $HOME/bin/virtualenv-auto-activate.sh
-
-
-
-export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 export LESS=' -R '
+export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+export NPM_PACKAGES="${HOME}/.npm-packages"
+export PHP_AUTOCONF="/usr/local/bin/autoconf"
+
+# Virtualenv + Wrapper
+export PROJECT_HOME=$HOME/AddGeneProjects
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
 
 
-export PATH="$NPM_PACKAGES/bin:$GOPATH/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH"
-export PATH=/bin:/sbin:/usr/local/bin:/usr/bin:/usr/sbin:/Users/tsouza/bin:/opt/local/bin:$PATH
-export PATH="$HOME/.rvm/bin:$HOME/bin:$PATH" # Add RVM to PATH for scripting
+export PATH="$NPM_PACKAGES/bin:$GOPATH/bin:$HOME/bin:$PATH"
 
-# Sourcing aliases and functions
-source ~/.bash_aliases
-alias cg='cd "$(git rev-parse --show-toplevel)"'
-alias fuck='eval $(thefuck $(fc -ln -1)); history -r'
-alias ag='\ag --pager="less"'
-alias g='git'
 
+
+#
 if [ -e ~/.ssh/id_rsa ];then
   ssh-add ~/.ssh/id_addgene
 fi
-
+#
 if [ -z "$SSH_AUTH_SOCK" ] ; then
   eval `ssh-agent -s`
   ssh-add ~/.ssh/id_rsa
   ssh-add ~/.ssh/id_addgene
 fi
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
 
-
-
-# VMware Fusion
-if [ -d "/Applications/VMware Fusion.app/Contents/Library" ]; then
-    export PATH=$PATH:"/Applications/VMware Fusion.app/Contents/Library"
-fi
 export MP_FULLNAME="Tyrel Souza"
 
 function adg () {
     workon addgene-core
 }
-
 function cpbr () {
     if branch=$(git symbolic-ref --short -q HEAD)
     then
@@ -76,19 +57,12 @@ function cpbr () {
     fi
 }
 function hidden() { ls -a "$@" | grep '^\.'; }
- 
 
-
-
-alias hideprev='history -d $((HISTCMD-2)) && history -d $((HISTCMD-1))' # Hide the previous command you just ran and forgot to use space.
-#let g:user_emmet_leader_key='<C-Z>'
 if [ -e ~/.zshrc.local ];then
   source ~/.zshrc.local
 fi
 
-alias vim=nvim
-export VAGRANT_DEFAULT_PROVIDER=virtualbox
-
-export PYENV_ROOT=/usr/local/var/pyenv
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+# Sourcing aliases
+source ~/.bash_aliases
 source $HOME/.profile
+source $HOME/.credentials
