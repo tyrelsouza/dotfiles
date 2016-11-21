@@ -31,13 +31,12 @@ export PATH="$NPM_PACKAGES/bin:$GOPATH/bin:$HOME/bin:$PATH"
 
 
 #
-if [ -e ~/.ssh/id_rsa ];then
-  ssh-add ~/.ssh/id_addgene
-fi
-#
 if [ -z "$SSH_AUTH_SOCK" ] ; then
   eval `ssh-agent -s`
   ssh-add ~/.ssh/id_rsa
+fi
+#
+if [ -e ~/.ssh/id_addgene ];then
   ssh-add ~/.ssh/id_addgene
 fi
 
