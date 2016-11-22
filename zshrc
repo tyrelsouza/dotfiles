@@ -46,6 +46,9 @@ export MP_FULLNAME="Tyrel Souza"
 function adg () {
     workon addgene-core
 }
+function ipa(){
+    ifconfig | grep inet
+}
 function cpbr () {
     if branch=$(git symbolic-ref --short -q HEAD)
     then
