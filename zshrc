@@ -1,5 +1,5 @@
 export ZSH=$HOME/.oh-my-zsh
-plugins=(git brew sudo github django python pip cp vagrant virtualenv nmap rvm)
+plugins=(git sudo github django python pip cp vagrant virtualenv nmap rvm)
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     ZSH_THEME="soliah"
 else
@@ -23,7 +23,9 @@ export PHP_AUTOCONF="/usr/local/bin/autoconf"
 # Virtualenv + Wrapper
 export PROJECT_HOME=$HOME/AddGeneProjects
 export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+if [ -e $HOME/.local/bin/virtualenvwrapper.sh ];then
+    source $HOME/.local/bin/virtualenvwrapper.sh
+fi
 
 
 export PATH="$NPM_PACKAGES/bin:$GOPATH/bin:$HOME/bin:$PATH"
@@ -67,4 +69,6 @@ fi
 # Sourcing aliases
 source ~/.bash_aliases
 source $HOME/.profile
-source $HOME/.credentials
+if [ -e $HOME/.credentials ];then
+	source $HOME/.credentials
+fi
