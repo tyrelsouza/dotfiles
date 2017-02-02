@@ -11,3 +11,4 @@ tmp/**/*
 !tmp/cache/.keep
 .pre-commit-config.yaml
 .ruby-version
+release_package.sh
