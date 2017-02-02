@@ -10,6 +10,7 @@ ln -s ~/.config/nvim ~/.vim
 ln -s ~/.config/nvim/init.vim ~/.vimrc
 ln -s $(pwd)/zshrc ~/.zshrc 
 ln -s $(pwd)/tyrel.zsh-theme ~/.oh-my-zsh/themes/tyrel.zsh-theme
+ln -s $(pwd)/pythonstartup.py ~/.pythonstartup.py
 
 # Setup vim
 mkdir -p ~/.vim/bundle

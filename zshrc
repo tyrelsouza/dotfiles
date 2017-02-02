@@ -72,3 +72,4 @@ source $HOME/.profile
 if [ -e $HOME/.credentials ];then
 	source $HOME/.credentials
 fi
+export PYTHONSTARTUP=$HOME/.pythonstartup.py
