@@ -12,3 +12,4 @@ tmp/**/*
 .pre-commit-config.yaml
 .ruby-version
 release_package.sh
+local.fish

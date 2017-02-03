@@ -12,7 +12,6 @@ alias deploy_all="fab -R silver-web deploy:master &&  fab -R gold-web deploy:mas
 alias deploy_all_migration="fab -R silver-web deploy:master,1 &&  fab -R gold-web deploy:master,1 && fab -R jupyter deploy_jupyter & fab --parallel avail_staging_hosts deploy:master,1"
 alias aenv='env | sort | grep ADDGENE'
 alias sl='source local.env'
-unalias mysql
 
 if [[ $OSTYPE == darwin* ]]; then
     alias rm=trash;
