@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 ln -s $(pwd)/bash_aliases ~/.bash_aliases 
 ln -s $(pwd)/gitconfig ~/.gitconfig 
 ln -s $(pwd)/gitignore ~/.gitignore 
@@ -11,6 +12,12 @@ ln -s ~/.config/nvim/init.vim ~/.vimrc
 ln -s $(pwd)/zshrc ~/.zshrc 
 ln -s $(pwd)/tyrel.zsh-theme ~/.oh-my-zsh/themes/tyrel.zsh-theme
 ln -s $(pwd)/pythonstartup.py ~/.pythonstartup.py
+
+# cleanup fish config
+mkdir -p ~/.config/fish
+rm -rf ~/.config/fish
+ln -s $(pwd)/config/fish ~/.config/fish
+
 
 # Setup vim
 mkdir -p ~/.vim/bundle
