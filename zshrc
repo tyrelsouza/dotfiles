@@ -73,3 +73,14 @@ if [ -e $HOME/.credentials ];then
 	source $HOME/.credentials
 fi
 export PYTHONSTARTUP=$HOME/.pythonstartup.py
+
+function adtest () {
+    no_slashes="$(echo "$1" | sed -e 's/\//\./g')";
+    a_test="$(echo "$no_slashes" | sed -e 's/.py//g')";
+    a_project=$(echo -n "$a_test" | python -c "import sys; print sys.stdin.read().split('.', 1)[0]");
+    run_test=$(echo "bin/manage_$a_project.py test $a_test");
+    echo "Evaling $run_test";
+    eval $run_test;
+}
+
+
