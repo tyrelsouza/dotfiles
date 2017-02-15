@@ -32,6 +32,9 @@ fi
 
 
 export PATH="$NPM_PACKAGES/bin:$GOPATH/bin:$HOME/bin:$PATH"
+if [[ $OSTYPE == "*darwin*" ]];then
+	export PATH="/usr/local/opt/gnupg/libexec/gpgbin:$PATH"
+fi
 
 
 
