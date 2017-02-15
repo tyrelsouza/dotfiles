@@ -15,6 +15,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 rm -rf ~/.bash_aliases 
 rm -rf ~/.gitconfig 
 rm -rf ~/.gitignore 
+rm -rf ~/.git_template
 rm -rf ~/.hushlogin 
 rm -rf ~/.vim 
 rm -rf ~/.vimrc 
@@ -25,6 +26,7 @@ rm -rf ~/.pythonstartup.py
 ln -s $(pwd)/bash_aliases ~/.bash_aliases 
 ln -s $(pwd)/gitconfig ~/.gitconfig 
 ln -s $(pwd)/gitignore ~/.gitignore 
+ln -s $(pwd)/git_template ~/.git_template
 ln -s $(pwd)/hushlogin ~/.hushlogin 
 ln -s $(pwd)/vim ~/.vim 
 ln -s $(pwd)/vimrc ~/.vimrc 
