@@ -26,6 +26,9 @@ export WORKON_HOME=$HOME/.virtualenvs
 if [ -e $HOME/.local/bin/virtualenvwrapper.sh ];then
     source $HOME/.local/bin/virtualenvwrapper.sh
 fi
+if [ -e /usr/local/bin/virtualenvwrapper.sh ]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
 
 
 export PATH="$NPM_PACKAGES/bin:$GOPATH/bin:$HOME/bin:$PATH"
