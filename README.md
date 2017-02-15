@@ -9,3 +9,12 @@ ex:
 ## Script
 Just run ```dotfiles/INSTALL.sh```
 
+
+## Requirements:
+- bin/sshc
+    cpan Term::Title
+	cpan Perl::Critic
+	cpan XML::Dumper
+	cpan Curses
+	cpan Curses::UI
+
