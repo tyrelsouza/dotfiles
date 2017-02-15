@@ -89,4 +89,6 @@ function adtest () {
     eval $run_test;
 }
 
-
+function dots(){
+    cd $(dirname `readlink ~/.zshrc`)
+}

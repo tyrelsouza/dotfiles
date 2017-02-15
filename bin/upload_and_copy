@@ -1,8 +1,9 @@
 #!/bin/bash
 set -e
 
-MD5=($(md5sum "$@" | cut -d ' ' -f 1))
+MD5=($(md5 -q "$@"))
 fname=$MD5."${1##*.}"
-scp -rp "$1" tyrelsouza.com:/var/www/html/screenshots/$fname;
-echo https://tyrelsouza.com/screenshots/$fname | xsel --clipboard --input
+scp -rp "$1" vpsimgs:/var/www/html/screenshots/$fname;
+osascript -e "display notification \"Uploaded $1 to https://tyrelsouza.com/screenshots/$fname\" with title \"Tyrel Upload\""
+echo https://tyrelsouza.com/screenshots/$fname | pbcopy
 rm "$1"
