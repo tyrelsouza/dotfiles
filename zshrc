@@ -3,7 +3,6 @@ plugins=(git sudo github django python pip cp vagrant virtualenv nmap rvm)
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     ZSH_THEME="soliah"
 else
-    ZSH_THEME="candy"
     ZSH_THEME="tyrel"
     export VIRTUAL_ENV_DISABLE_PROMPT=1
 fi
@@ -92,3 +91,38 @@ function adtest () {
 function dots(){
     cd $(dirname `readlink ~/.zshrc`)
 }
+alias shrug="echo -n '¯\_(ツ)_/¯' | pbcopy"
+
+function h () {
+        if [ -z "$*" ]
+        then
+            history
+        else
+            history | egrep "$@"
+        fi
+}
+
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    export PS1="<ssh>$PS1"
+fi
+alias stabbats='sudo killall VDCAssistant && open https://appear.in/stab-bats'
+
+
+function GitHub()
+{
+    git_url=`git config --get remote.origin.url`
+    if [[ $git_url == https://github* ]];
+    then
+        url=${git_url%.git}
+    else
+       if [[ $git_url == git@github.com* ]]
+       then
+            url="https://github.com/${${git_url:15}%.git}"
+       else
+	       echo "ERROR: Remote origin is invalid" && return false;
+       fi
+    fi
+    open $url
+}
+
+alias github=GitHub
