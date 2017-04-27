@@ -3,7 +3,6 @@ plugins=(git sudo github django python pip cp vagrant virtualenv nmap rvm)
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     ZSH_THEME="soliah"
 else
-    ZSH_THEME="candy"
     ZSH_THEME="tyrel"
     export VIRTUAL_ENV_DISABLE_PROMPT=1
 fi
