@@ -42,11 +42,12 @@ ln -s $(pwd)/pythonstartup.py ~/.pythonstartup.py
 ln -s $(pwd)/zprofile.local ~/.zprofile.local
 ln -s $(pwd)/zpreztorc ~/.zpreztorc
 
-ln -s /Users/tyrel/.zprezto/runcoms/zlogin ~/.zlogin
-ln -s /Users/tyrel/.zprezto/runcoms/zlogout ~/.zlogout
-ln -s /Users/tyrel/.zprezto/runcoms/zshenv ~/.zshenv
-ln -s /Users/tyrel/.zprezto/runcoms/zshrc ~/.zshrc
-ln -s /Users/tyrel/.zprezto/runcoms/zprofile ~/.zprofile
+ln -s $HOME/.zprezto/runcoms/zlogin ~/.zlogin
+ln -s $HOME/.zprezto/runcoms/zlogout ~/.zlogout
+ln -s $HOME/.zprezto/runcoms/zshenv ~/.zshenv
+ln -s $HOME/.zprezto/runcoms/zshrc ~/.zshrc
+ln -s $HOME/.zprezto/runcoms/zprofile ~/.zprofile
+echo "source ~/.zprofile.local" >> ~/.zprofile
 
 # cleanup fish config
 mkdir -p ~/.config/fish
