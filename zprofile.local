@@ -1,4 +1,7 @@
+#!/usr/local/bin/zsh
+
 export EDITOR=vim
+export VISUAL=vim
 export GOPATH=$HOME/go
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
