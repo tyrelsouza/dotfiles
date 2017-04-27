@@ -3,7 +3,7 @@ set -e
 set -x
 set -v
 
-if [[ $OSTYPE == "*darwin*" ]];then
+if [ $OSTYPE = "darwin16.0" ];then
     umount /Volumes/ramdisk
     mysql.server stop
     killall mysqld

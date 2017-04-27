@@ -4,9 +4,11 @@ set nocompatible
 execute pathogen#infect()
 
 syntax on
-colorscheme monokai
 set noshowmode
 set mouse-=a
+syntax enable
+set background=dark
+colorscheme solarized
 
 " Leader
 let mapleader = " "
@@ -90,6 +92,7 @@ if executable('ag')
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  let g:ackprg = 'ag --vimgrep'
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
@@ -98,21 +101,12 @@ endif
 
 " Toggle line numbers with F1 - no more stupid help!
 nmap <silent> <F1> :set invnumber<CR>
-"NerdTree, show if open vim without file
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-nmap <C-n> :NERDTreeToggle<CR>
-
-
 autocmd StdinReadPre * let s:std_in=1
-
-
 hi Normal ctermbg=none
-
-
 " Local config
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
 set background=dark
-let NERDTreeIgnore = ['\.pyc$']
-
+let g:go_fmt_command = "goimports"
+:nnoremap <leader><tab> :buffers<CR>:buffer<Space>

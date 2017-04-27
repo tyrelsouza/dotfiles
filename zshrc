@@ -7,8 +7,6 @@ else
     ZSH_THEME="tyrel"
     export VIRTUAL_ENV_DISABLE_PROMPT=1
 fi
-source $ZSH/oh-my-zsh.sh
-##### ^^^ Oh my ZSH ^^^^ #####
 
 export EDITOR=vim
 export GOPATH=$HOME/go
@@ -92,3 +90,4 @@ function adtest () {
 function dots(){
     cd $(dirname `readlink ~/.zshrc`)
 }
+eval "$(pyenv init -)"

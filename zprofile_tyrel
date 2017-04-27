@@ -1,0 +1,40 @@
+export EDITOR=vim
+export GOPATH=$HOME/go
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LESS=' -R '
+export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+export NPM_PACKAGES="${HOME}/.npm-packages"
+export PHP_AUTOCONF="/usr/local/bin/autoconf"
+
+# Virtualenv + Wrapper
+export PROJECT_HOME=$HOME/AddGeneProjects
+export WORKON_HOME=$HOME/.virtualenvs
+if [ -e $HOME/.local/bin/virtualenvwrapper.sh ];then
+    source $HOME/.local/bin/virtualenvwrapper.sh
+fi
+if [ -e /usr/local/bin/virtualenvwrapper.sh ]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
+export PATH="$NPM_PACKAGES/bin:$GOPATH/bin:$HOME/bin:$PATH"
+if [[ $OSTYPE == "*darwin*" ]];then
+	export PATH="/usr/local/opt/gnupg/libexec/gpgbin:$PATH"
+fi
+#
+if [ -z "$SSH_AUTH_SOCK" ] ; then
+  eval `ssh-agent -s`
+  ssh-add ~/.ssh/id_rsa
+fi
+#
+if [ -e ~/.ssh/id_addgene ];then
+  ssh-add ~/.ssh/id_addgene
+fi
+export MP_FULLNAME="Tyrel Souza"
+
+source ~/.bash_aliases
+if [ -e $HOME/.credentials ];then
+	source $HOME/.credentials
+fi
+export PYTHONSTARTUP=$HOME/.pythonstartup.py
+eval "$(pyenv init -)"

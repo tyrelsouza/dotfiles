@@ -8,11 +8,12 @@ if [[ $OSTYPE == darwin* ]]; then
     ~/bin/setup-usr-local.sh
 fi
 
-# install oh my zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+rm -rf ~/.zprezto
+git clone --recursive https://github.com/sorin-ionescu/prezto.git ~/.zprezto
 
 # delete existing dotfiles
-rm -rf ~/.bash_aliases 
+rm -rf ~/.bash_aliases
 rm -rf ~/.gitconfig 
 rm -rf ~/.gitignore 
 rm -rf ~/.git_template
@@ -20,8 +21,14 @@ rm -rf ~/.hushlogin
 rm -rf ~/.vim 
 rm -rf ~/.vimrc 
 rm -rf ~/.zshrc 
-rm -rf ~/.oh-my-zsh/themes/tyrel.zsh-theme
 rm -rf ~/.pythonstartup.py
+rm -rf ~/.zlogin
+rm -rf ~/.zlogout
+rm -rf ~/.zpreztorc
+rm -rf ~/.zprofile
+rm -rf ~/.zshenv
+rm -rf ~/.zshrc
+
 # set Symlinks to configs
 ln -s $(pwd)/bash_aliases ~/.bash_aliases 
 ln -s $(pwd)/gitconfig ~/.gitconfig 
@@ -31,9 +38,14 @@ ln -s $(pwd)/hushlogin ~/.hushlogin
 ln -s $(pwd)/vim ~/.vim 
 ln -s $(pwd)/vimrc ~/.vimrc 
 ln -s $(pwd)/zshrc ~/.zshrc 
-ln -s $(pwd)/tyrel.zsh-theme ~/.oh-my-zsh/themes/tyrel.zsh-theme
 ln -s $(pwd)/pythonstartup.py ~/.pythonstartup.py
-
+ln -s $(pwd)/zprofile ~/.zprofile
+ln -s $(pwd)/zpreztorc ~/.zpreztorc
+ln -s $(pwd)/zprofile.local ~/.zprofile.local
+ln -s /Users/tyrel/.zprezto/runcoms/zlogin ~/.zlogin
+ln -s /Users/tyrel/.zprezto/runcoms/zlogout ~/.zlogout
+ln -s /Users/tyrel/.zprezto/runcoms/zshenv ~/.zshenv
+ln -s /Users/tyrel/.zprezto/runcoms/zshrc ~/.zshrc
 
 # cleanup fish config
 mkdir -p ~/.config/fish
@@ -44,13 +56,14 @@ ln -s $(pwd)/config/fish ~/.config/fish
 mkdir -p ~/.vim/bundle
 cd ~/.vim/bundle
 # Put Bundles Here
-git clone https://github.com/kien/ctrlp.vim.git
-git clone https://github.com/scrooloose/nerdtree.git
-git clone https://github.com/danro/rename.vim.git
-git clone https://github.com/scrooloose/syntastic.git
-git clone https://github.com/vim-airline/vim-airline.git
-git clone https://github.com/vim-airline/vim-airline-themes.git
-git clone https://github.com/croaky/vim-colors-github.git
-git clone https://github.com/pbrisbin/vim-mkdir.git
-git clone https://github.com/tpope/vim-surround.git
-
+git clone git@github.com:Shougo/denite.nvim.git
+git clone git@github.com:spolu/dwm.vim.git
+git clone git@github.com:croaky/vim-colors-github.git
+git clone git@github.com:danro/rename.vim.git
+git clone git@github.com:fatih/vim-go.git
+git clone git@github.com:kien/ctrlp.vim.git
+git clone git@github.com:mileszs/ack.vim.git
+git clone git@github.com:pbrisbin/vim-mkdir.git
+git clone git@github.com:scrooloose/syntastic.git
+git clone git@github.com:vim-airline/vim-airline-themes.git
+git clone git@github.com:vim-airline/vim-airline.git
