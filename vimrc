@@ -7,12 +7,12 @@ syntax on
 set noshowmode
 set mouse-=a
 syntax enable
-set background=dark
 colorscheme solarized
 
 " Leader
 let mapleader = " "
 
+set hidden " allow buffers to be hidden
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
 set nowritebackup
@@ -23,11 +23,13 @@ set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
-" Softtabs, 4 spaces
-set tabstop=4 softtabstop=0 expandtab shiftwidth=4 shiftround
-" Make it obvious where 80 characters is
-set textwidth=80
+set tabstop=4 softtabstop=0 expandtab shiftwidth=4 shiftround " Softtabs, 4 spaces
+set textwidth=80 " Make it obvious where 80 characters is
 set colorcolumn=+1
+set autoindent
+set preserveindent
+set copyindent
+
 " Numbers
 set number
 set numberwidth=4
@@ -36,20 +38,15 @@ set paste
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
-set splitright
+" set splitright
 
 " Quicker window movement
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
 " Switch between the last two files
 nnoremap <leader><leader> <c-^>
 
 " Easier tab changing
-nnoremap rr :tabprevious<CR>
-nnoremap tt :tabnext<CR>
-nnoremap <C-t>  :tabnew<CR>
+nnoremap rr :bprevious<CR>
+nnoremap tt :bnext<CR>
 
 " configure syntastic syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1
@@ -59,7 +56,7 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='base16'
 let g:tmuxline_powerline_separators = 0
-
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 
 " Treat <li> and <p> tags like the block tags they are
@@ -98,6 +95,38 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
 endif
 
+" Setup some default ignores
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
+  \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
+\}
+
+" Use the nearest .git directory as the cwd
+" This makes a lot of sense if you are working on a project that is in version
+" control. It also supports works with .svn, .hg, .bzr.
+let g:ctrlp_working_path_mode = 'r'
+
+" Use a leader instead of the actual named binding
+nmap <leader>p :CtrlP<cr>
+
+" Easy bindings for its various modes
+nmap <leader>bb :CtrlPBuffer<cr>
+nmap <leader>bm :CtrlPMixed<cr>
+nmap <leader>bs :CtrlPMRU<cr>
+
+
+" To open a new empty buffer
+" This replaces :tabnew which I used to bind to this mapping
+nmap <leader>t :enew<cr>
+
+" Move to the next buffer
+nmap <leader>l :bnext<CR>
+
+" Move to the previous buffer
+nmap <leader>h :bprevious<CR>
+
+" Close the current buffer and move to the previous one
+nmap <leader>bq :bp <BAR> bd #<CR>
 
 " Toggle line numbers with F1 - no more stupid help!
 nmap <silent> <F1> :set invnumber<CR>
@@ -107,6 +136,6 @@ hi Normal ctermbg=none
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
-set background=dark
 let g:go_fmt_command = "goimports"
-:nnoremap <leader><tab> :buffers<CR>:buffer<Space>
+nnoremap <leader><tab> :buffers<CR>:buffer<Space>
+set background=dark
