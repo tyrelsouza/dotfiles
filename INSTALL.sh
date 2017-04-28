@@ -1,9 +1,8 @@
 #!/bin/bash
 
 # get initial directories setup 
-mv ~/bin/* $(pwd)/bin/
-rm -rf ~/bin/
 ln -s $(pwd)/bin ~/bin
+
 if [[ $OSTYPE == darwin* ]]; then
     ~/bin/setup-usr-local.sh
 fi
