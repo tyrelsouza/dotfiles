@@ -8,6 +8,7 @@ zstyle ':prezto:load' pmodule \
   'utility' \
   'completion' \
   'tmux' \
+  'python' \
   'prompt'
 
 zstyle ':prezto:module:autosuggestions:color' found ''
@@ -19,3 +20,5 @@ zstyle ':prezto:module:prompt' theme 'paradox'
 zstyle ':prezto:module:prompt' long-pwd 'yes'
 zstyle ':prezto:module:terminal:multiplexer-title' format '%s'
 zstyle ':prezto:module:tmux:iterm' integrate 'yes'
+zstyle ':prezto:module:python:info:virtualenv' format 'v:% v'
+
