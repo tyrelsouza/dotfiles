@@ -9,8 +9,6 @@ alias ppjson="python -m json.tool"
 
 # Addgene specific
 alias adocs='cd $ADDGENE_CORE_REPO_DIR/docs && make html && open $ADDGENE_CORE_REPO_DIR/docs/build/html/index.html'
-alias deploy_all="fab -R silver-web deploy:master &&  fab -R gold-web deploy:master && fab -R jupyter fab -R jupyter deploy_jupyter && fab --parallel avail_staging_hosts deploy:master"
-alias deploy_all_migration="fab -R silver-web deploy:master,1 &&  fab -R gold-web deploy:master,1 && fab -R jupyter deploy_jupyter & fab --parallel avail_staging_hosts deploy:master,1"
 alias aenv='env | sort | grep ADDGENE'
 alias sl="source local.env.$(basename $SHELL)"
 
@@ -56,28 +54,4 @@ function h () {
         fi
 }
 
-if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-    export PS1="<ssh>$PS1"
-fi
 alias stabbats='sudo killall VDCAssistant && open https://appear.in/stab-bats'
-
-
-function GitHub()
-{
-    git_url=`git config --get remote.origin.url`
-    if [[ $git_url == https://github* ]];
-    then
-        url=${git_url%.git}
-    else
-       if [[ $git_url == git@github.com* ]]
-       then
-            url="https://github.com/${${git_url:15}%.git}"
-       else
-	       echo "ERROR: Remote origin is invalid" && return false;
-       fi
-    fi
-    open $url
-}
-
-alias github=GitHub
-

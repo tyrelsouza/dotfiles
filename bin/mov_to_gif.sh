@@ -7,6 +7,8 @@ if [[ $3 ]]; then
 else
     END=$(ffprobe -loglevel error -show_streams $NAME | grep duration\= | cut -f2 -d=)
 fi
+END=$(echo -n $END | cut -d ' ' -f 1)
+echo $END
 echo "Making a gif of $NAME from $START seconds to $END seconds"
 
 ffmpeg -y -ss $START -t $END -i $NAME -vf fps=24,scale=640:-1:flags=lanczos,palettegen temp_palette.png
