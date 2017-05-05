@@ -27,8 +27,8 @@ export PATH="$NPM_PACKAGES/bin:$GOPATH/bin:$HOME/bin:$PATH"
 export GOPATH=$HOME/go
 
 # GPG stuff
-if [[ $OSTYPE == "*darwin*" ]];then
+if [[ $OSTYPE == "darwin*" ]];then
 	export PATH="/usr/local/opt/gnupg/libexec/gpgbin:$PATH"
+	export CFLAGS="-I/usr/local/opt/openssl/include -L/usr/local/opt/openssl/lib"
 fi
-#
 source ~/.bash_aliases
