@@ -1,4 +1,5 @@
 vim/bundle/
 vim/view
 .netrwhist
+chromedriver
 config/fish/fishd.*

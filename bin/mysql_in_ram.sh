@@ -1,9 +1,7 @@
 #!/bin/bash
-set -e
-set -x
 set -v
 
-if [ $OSTYPE = "darwin16.0" ];then
+if [[ $OSTYPE == *"darwin16"* ]];then
     umount /Volumes/ramdisk
     mysql.server stop
     killall mysqld
