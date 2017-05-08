@@ -57,8 +57,8 @@ ln -s $(pwd)/config/fish ~/.config/fish
 mkdir -p ~/.vim/bundle
 cd ~/.vim/bundle
 # Put Bundles Here
+git clone git@github.com:JamshedVesuna/vim-markdown-preview.git
 git clone git@github.com:Shougo/denite.nvim.git
-git clone git@github.com:spolu/dwm.vim.git
 git clone git@github.com:croaky/vim-colors-github.git
 git clone git@github.com:danro/rename.vim.git
 git clone git@github.com:fatih/vim-go.git
@@ -66,5 +66,7 @@ git clone git@github.com:kien/ctrlp.vim.git
 git clone git@github.com:mileszs/ack.vim.git
 git clone git@github.com:pbrisbin/vim-mkdir.git
 git clone git@github.com:scrooloose/syntastic.git
+git clone git@github.com:spolu/dwm.vim.git
+git clone git@github.com:tpope/vim-surround.git
 git clone git@github.com:vim-airline/vim-airline-themes.git
 git clone git@github.com:vim-airline/vim-airline.git
