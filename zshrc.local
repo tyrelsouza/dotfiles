@@ -45,3 +45,4 @@ if [ -e $HOME/.credentials ];then
 fi
 
 source ~/.bash_aliases
+unsetopt share_history

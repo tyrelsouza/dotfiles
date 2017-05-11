@@ -18,6 +18,7 @@ rm -rf ~/.gitignore
 rm -rf ~/.git_template
 rm -rf ~/.hushlogin 
 rm -rf ~/.vim 
+rm -rf ~/.emacs
 rm -rf ~/.vimrc 
 rm -rf ~/.zshrc 
 rm -rf ~/.pythonstartup.py
@@ -34,6 +35,7 @@ ln -s $(pwd)/gitconfig ~/.gitconfig
 ln -s $(pwd)/gitignore ~/.gitignore 
 ln -s $(pwd)/git_template ~/.git_template
 ln -s $(pwd)/hushlogin ~/.hushlogin 
+ln -s $(pwd)/emacs ~/.emacs
 ln -s $(pwd)/vim ~/.vim 
 ln -s $(pwd)/vimrc ~/.vimrc 
 ln -s $(pwd)/zshrc ~/.zshrc 
