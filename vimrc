@@ -38,7 +38,7 @@ set paste
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
-" set splitright
+set splitright
 
 " Quicker window movement
 " Switch between the last two files
@@ -133,9 +133,13 @@ nmap <silent> <F1> :set invnumber<CR>
 autocmd StdinReadPre * let s:std_in=1
 hi Normal ctermbg=none
 " Local config
-if filereadable($HOME . "/.vimrc.local")
-  source ~/.vimrc.local
-endif
 let g:go_fmt_command = "goimports"
 nnoremap <leader><tab> :buffers<CR>:buffer<Space>
 set background=dark
+let vim_markdown_preview_hotkey='<C-m>'
+let vim_markdown_preview_github=1
+let vim_markdown_preview_browser='Google Chrome'
+
+if filereadable($HOME . "/.vimrc.local")
+  source ~/.vimrc.local
+endif

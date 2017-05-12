@@ -40,8 +40,9 @@ if [ -e ~/.ssh/id_addgene ];then
   ssh-add ~/.ssh/id_addgene
 fi
 
-source ~/.bash_aliases
 if [ -e $HOME/.credentials ];then
 	source $HOME/.credentials
 fi
 
+source ~/.bash_aliases
+unsetopt share_history

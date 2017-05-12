@@ -16,32 +16,21 @@
 [format]
     pretty = format:%C(auto)%h %C(green)%G? %C(red)%<(15,trunc)%aN %C(cyan)%<(15,trunc)%ar %C(white)%<(60,trunc)%s %C(auto)%d
 [alias]
-    # show all these aliases
-    alias = "!git config -l | grep alias | cut -c 7-"
-	# delete all merged branches
-	bc = !git branch --merged master | grep -v master | xargs git branch -d
-    # Way more information on git log
-    ll = log --stat --abbrev-commit
-    # Show files modified per commit
-    files = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-    # show a tree with branches merging 
-    logtree=  "log --graph --oneline --decorate --all"
-    # get the most 10 recent branches worked on
-    recent = "!git for-each-ref --format=\"%(committerdate:relative) | %(refname)\" --sort=-committerdate refs/heads | sed '/master/d' | head -n 15"
-    # show tabs with ⌑ replacing tabs
-    tabs = "!git diff --color | sed 's/\t/⌑/g'"
-    # show the current version tag
-    v=describe --tags --match 'v*'
-    # alias like `hg st`, because I like st, shorter is nice!
-    st = status
-    # prettier diffs
-    d = diff --color-words
-    #push
+    alias = "!git config -l | grep alias | cut -c 7-" # show all these aliases
+	bc = !git branch --merged master | grep -v master | xargs git branch -d # delete all merged branches
+    d = diff --color-words # prettier diffs
+    dsf = "!f() { [ \"$GIT_PREFIX\" != \"\" ] && cd "$GIT_PREFIX"; git diff --color $@ | diff-so-fancy | less --tabs=4 -RFX; }; f" # Diff so fancy!
+    files = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat # Show files modified per commit
+    ll = log --stat --abbrev-commit # Way more information on git log
+    lb = log --stat --no-merges origin/master..
+    logtree=  "log --graph --oneline --decorate --all" # show a tree with branches merging 
     p = push
     pr = !"pr() { git fetch origin pull/$1/head:pr-$1; git checkout pr-$1; }; pr"
-    # Diff so fancy!
-    dsf = "!f() { [ \"$GIT_PREFIX\" != \"\" ] && cd "$GIT_PREFIX"; git diff --color $@ | diff-so-fancy | less --tabs=4 -RFX; }; f"
+    recent = "!git for-each-ref --format=\"%(committerdate:relative) | %(refname)\" --sort=-committerdate refs/heads | sed '/master/d' | head -n 15" # get the most 10 recent branches worked on
 	scrum = log --since='1 day ago' --author='Tyrel Souza' --oneline
+    st = status # alias like `hg st`, because I like st, shorter is nice!
+    tabs = "!git diff --color | sed 's/\t/⌑/g'" # show tabs with ⌑ replacing tabs
+    v=describe --tags --match 'v*' # show the current version tag
 [filter "lfs"]
     clean = git-lfs clean %f
     smudge = git-lfs smudge %f
@@ -53,3 +42,9 @@
 	newHighlight = green bold 22
 [init]
 	templatedir = ~/.git_template
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

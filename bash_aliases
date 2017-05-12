@@ -1,21 +1,25 @@
 #!/usr/local/bin/zsh
-export HOMEBREW_GITHUB_API_TOKEN="caf4cd85c6eb6ddcf006d4571d4a294c0b0592e4"
-alias ag='\ag --pager="less"'
-alias cg='cd "$(git rev-parse --show-toplevel)"'
-alias fuck='eval $(thefuck $(fc -ln -1)); \history -r'
-alias g='git'
-alias pdb="python -m pdb"
-alias ppjson="python -m json.tool"
 
-# Addgene specific
+# Aliases
+alias adg="workon addgene-core"
 alias adocs='cd $ADDGENE_CORE_REPO_DIR/docs && make html && open $ADDGENE_CORE_REPO_DIR/docs/build/html/index.html'
 alias aenv='env | sort | grep ADDGENE'
-alias sl="source local.env.$(basename $SHELL)"
+alias ag='\ag --pager="less"'
+alias cg='cd "$(git rev-parse --show-toplevel)"'
+alias dots="cd $(dirname `readlink ~/.vim`)"
+alias g='git'
+alias gp='git push'
+alias pdb="python -m pdb"
+alias ppjson="python -m json.tool"
+alias shrug="echo -n '¯\_(ツ)_/¯' | pbcopy"
+alias sl="source local.env"
+alias stabbats='sudo killall VDCAssistant && open https://appear.in/stab-bats'
 
 if [[ $OSTYPE == darwin* ]]; then
     alias rm=trash;
 fi;
 
+# Functions
 function adtest () {
     no_slashes="$(echo "$1" | sed -e 's/\//\./g')";
     a_test="$(echo "$no_slashes" | sed -e 's/.py//g')";
@@ -23,14 +27,6 @@ function adtest () {
     run_test=$(echo "bin/manage_$a_project.py test $a_test");
     echo "Evaling $run_test";
     eval $run_test;
-}
-
-function dots(){
-    cd $(dirname `readlink ~/.vim`)
-}
-
-function adg () {
-    workon addgene-core
 }
 function cpbr () {
     if branch=$(git symbolic-ref --short -q HEAD)
@@ -42,9 +38,6 @@ function cpbr () {
     fi
 }
 function hidden() { ls -a "$@" | grep '^\.'; }
-
-alias shrug="echo -n '¯\_(ツ)_/¯' | pbcopy"
-
 function h () {
         if [ -z "$*" ]
         then
@@ -54,4 +47,3 @@ function h () {
         fi
 }
 
-alias stabbats='sudo killall VDCAssistant && open https://appear.in/stab-bats'

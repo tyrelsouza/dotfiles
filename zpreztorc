@@ -9,6 +9,7 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'tmux' \
   'git' \
+  'python' \
   'prompt'
 
 zstyle ':prezto:module:autosuggestions:color' found ''
@@ -19,6 +20,7 @@ zstyle ':prezto:module:git:status:ignore' submodules 'all'
 zstyle ':prezto:module:prompt' theme 'paradox'
 zstyle ':prezto:module:prompt' long-pwd 'yes'
 zstyle ':prezto:module:terminal:multiplexer-title' format '%s'
-zstyle ':prezto:module:tmux:iterm' integrate 'yes'
+zstyle ':prezto:module:tmux:auto-start' local 'yes'
+zstyle ':prezto:module:tmux' session 'AddgeneImac'
 zstyle ':prezto:module:python:info:virtualenv' format 'v:% v'
 
