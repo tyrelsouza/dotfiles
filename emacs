@@ -32,7 +32,6 @@
   )
 (use-package magit)
 
-(load-theme 'solarized t)
 (use-package smart-mode-line
   :ensure t
   :config
@@ -66,4 +65,4 @@
             (let ((mode (if (display-graphic-p frame) 'light 'dark)))
               (set-frame-parameter frame 'background-mode mode)
               (set-terminal-parameter frame 'background-mode mode))
-            (enable-theme 'solarized)))
+            (enable-theme 'solarized-dark)))
