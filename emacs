@@ -96,3 +96,10 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 ;; buffer list
 (global-set-key (kbd "C-x C-l") 'list-buffers)
+(set-terminal-parameter nil 'background-mode 'dark)
+(add-hook 'after-make-frame-functions
+          (lambda (frame)
+            (let ((mode (if (display-graphic-p frame) 'light 'dark)))
+              (set-frame-parameter frame 'background-mode mode)
+              (set-terminal-parameter frame 'background-mode mode))
+            (enable-theme 'solarized-dark)))
