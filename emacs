@@ -12,12 +12,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes (quote (smart-mode-line-respectful)))
  '(custom-safe-themes
    (quote
-    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default)))
+    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default)))
  '(package-selected-packages
    (quote
-    (color-theme-solarized neotree smart-mode-line powerline magit use-package helm evil-visual-mark-mode))))
+    (color-theme-solarized neotree smart-mode-line powerline use-package helm evil-visual-mark-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -30,7 +31,6 @@
   (evil-mode 1)
   ;; More configuration goes here
   )
-(use-package magit)
 
 (use-package smart-mode-line
   :ensure t
@@ -52,6 +52,9 @@
 ;; Set Powerline Configuration
 (setq powerline-arrow-shape 'curve)
 (setq powerline-default-separator-dir '(right . left))
+
+;; Projectile
+(add-hook 'python-mode-hook 'projectile-mode)
 
 ;; rebind neotree in evil-mode
 (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)

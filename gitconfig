@@ -16,6 +16,7 @@
 [format]
     pretty = format:%C(auto)%h %C(green)%G? %C(red)%<(15,trunc)%aN %C(cyan)%<(15,trunc)%ar %C(white)%<(60,trunc)%s %C(auto)%d
 [alias]
+    ab = "diff --name-only origin/master"
     alias = "!git config -l | grep alias | cut -c 7-" # show all these aliases
 	bc = !git branch --merged master | grep -v master | xargs git branch -d # delete all merged branches
     d = diff --color-words # prettier diffs

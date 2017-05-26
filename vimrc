@@ -128,6 +128,11 @@ nmap <leader>h :bprevious<CR>
 " Close the current buffer and move to the previous one
 nmap <leader>bq :bp <BAR> bd #<CR>
 
+" FUCK EX MODE
+map q: <Nop>
+nnoremap Q <nop>
+
+
 " Toggle line numbers with F1 - no more stupid help!
 nmap <silent> <F1> :set invnumber<CR>
 autocmd StdinReadPre * let s:std_in=1

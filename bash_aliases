@@ -47,3 +47,7 @@ function h () {
         fi
 }
 
+
+# options
+export LESS=-RFX
+export PAGER="less"
