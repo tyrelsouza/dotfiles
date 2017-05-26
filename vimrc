@@ -114,6 +114,10 @@ nmap <leader>bb :CtrlPBuffer<cr>
 nmap <leader>bm :CtrlPMixed<cr>
 nmap <leader>bs :CtrlPMRU<cr>
 
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
+nmap <F7> :CtrlPTag<CR>
+
 
 " To open a new empty buffer
 " This replaces :tabnew which I used to bind to this mapping
@@ -148,3 +152,7 @@ let vim_markdown_preview_browser='Google Chrome'
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
+
+" Set the ctags file name
+set tags=./tags;
+let g:tagbar_ctags_bin='/usr/local/bin/ctags'

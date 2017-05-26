@@ -6,6 +6,7 @@ alias adocs='cd $ADDGENE_CORE_REPO_DIR/docs && make html && open $ADDGENE_CORE_R
 alias aenv='env | sort | grep ADDGENE'
 alias ag='\ag --pager="less"'
 alias cg='cd "$(git rev-parse --show-toplevel)"'
+alias ctags="`brew --prefix`/bin/ctags"
 alias dots="cd $(dirname `readlink ~/.vim`)"
 alias g='git'
 alias gp='git push'

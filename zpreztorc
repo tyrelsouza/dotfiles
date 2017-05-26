@@ -9,7 +9,6 @@ zstyle ':prezto:load' pmodule \
   'completion' \
   'tmux' \
   'git' \
-  'python' \
   'prompt'
 
 zstyle ':prezto:module:autosuggestions:color' found ''
