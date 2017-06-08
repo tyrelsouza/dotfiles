@@ -107,7 +107,8 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_working_path_mode = 'r'
 
 " Use a leader instead of the actual named binding
-nmap <leader>p :CtrlP<cr>
+nmap <leader>pb :CtrlPBuffer<cr>
+nmap <S-t> :CtrlPBuffer<cr>
 
 " Easy bindings for its various modes
 nmap <leader>bb :CtrlPBuffer<cr>
@@ -154,5 +155,10 @@ if filereadable($HOME . "/.vimrc.local")
 endif
 
 " Set the ctags file name
-set tags=./tags;
+set tags=./.tags;
 let g:tagbar_ctags_bin='/usr/local/bin/ctags'
+let g:session_autoload = 'no'
+
+let g:airline#extensions#tabline#fnamemod = ':.'
+
+
