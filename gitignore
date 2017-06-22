@@ -13,3 +13,4 @@ tmp/**/*
 .ruby-version
 release_package.sh
 local.fish
+local.env
