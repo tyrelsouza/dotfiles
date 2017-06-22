@@ -28,12 +28,14 @@ export GOPATH=$HOME/go
 
 # GPG stuff
 if [[ $OSTYPE == "darwin*" ]];then
+    echo "On Macos"
 	export PATH="/usr/local/opt/gnupg/libexec/gpgbin:$PATH"
 	export CFLAGS="-I/usr/local/opt/openssl/include -L/usr/local/opt/openssl/lib"
 	export LDFLAGS="-L/usr/local/opt/icu4c/lib"
 	export CPPFLAGS="-I/usr/local/opt/icu4c/include"
 	export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig"
 fi
+export PATH="$HOME/.Pokemon-Terminal:$PATH"
 
 eval `ssh-agent -s` 
 if [ -e ~/.ssh/id_addgene ];then

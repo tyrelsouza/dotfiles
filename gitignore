@@ -14,3 +14,4 @@ tmp/**/*
 release_package.sh
 local.fish
 local.env
+vim/sessions
