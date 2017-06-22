@@ -139,14 +139,15 @@ nnoremap Q <nop>
 
 
 " Toggle line numbers with F1 - no more stupid help!
-nmap <silent> <F1> :set invnumber<CR>
+"nmap <silent> <F1> :set invnumber<CR>
+nmap <silent> <F1> :exec &nu==&rnu? "se nu!" : "se rnu!"<CR>
 autocmd StdinReadPre * let s:std_in=1
 hi Normal ctermbg=none
 " Local config
 let g:go_fmt_command = "goimports"
 nnoremap <leader><tab> :buffers<CR>:buffer<Space>
 set background=dark
-let vim_markdown_preview_hotkey='<C-m>'
+let vim_markdown_preview_hotkey='<S-m>'
 let vim_markdown_preview_github=1
 let vim_markdown_preview_browser='Google Chrome'
 

@@ -25,7 +25,8 @@
     ll = log --stat --abbrev-commit # Way more information on git log
     lb = log --stat --no-merges origin/master..
     logtree=  "log --graph --oneline --decorate --all" # show a tree with branches merging 
-    ob = "!vim $(git diff --name-only origin/master | grep -v .tsv | grep -v .sql | grep -v static)"
+    ob = "!$EDITOR $(git diff --name-only origin/master | grep -v .tsv | grep -v .sql | grep -v static)"
+    od = "!$EDITOR $(git diff --name-only HEAD | grep -v .tsv | grep -v .sql | grep -v static)"
     p = push
     pr = !"pr() { git fetch origin pull/$1/head:pr-$1; git checkout pr-$1; }; pr"
     recent = "!git for-each-ref --format=\"%(committerdate:relative) | %(refname)\" --sort=-committerdate refs/heads | sed '/master/d' | head -n 15" # get the most 10 recent branches worked on
