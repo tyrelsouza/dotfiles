@@ -7,7 +7,7 @@ gnu-sed
 graphviz
 homebrew/versions/gnupg21
 htop-osx
-mariadb
+mariadb@10.1
 mtr
 nmap
 openssl
@@ -20,3 +20,4 @@ vim
 watch
 wget
 zsh-completions
+diff-so-fancy

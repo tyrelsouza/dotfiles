@@ -7,9 +7,10 @@ zstyle ':prezto:load' pmodule \
   'history-substring-search' \
   'utility' \
   'completion' \
-  'tmux' \
   'git' \
-  'prompt'
+  'python' \
+  'prompt' \
+  'tmux'
 
 zstyle ':prezto:module:autosuggestions:color' found ''
 zstyle ':prezto:module:editor' key-bindings 'emacs'
