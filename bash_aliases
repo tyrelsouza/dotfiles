@@ -16,10 +16,6 @@ alias shrug="echo -n '¯\_(ツ)_/¯' | pbcopy"
 alias sl="source local.env"
 alias stabbats='sudo killall VDCAssistant && open https://appear.in/stab-bats'
 
-if [[ $OSTYPE == darwin* ]]; then
-    alias rm=trash;
-fi;
-
 # Functions
 function adtest () {
     no_slashes="$(echo "$1" | sed -e 's/\//\./g')";
@@ -52,3 +48,4 @@ function h () {
 # options
 export LESS=-RFX
 export PAGER="less"
+alias love="/Applications/love.app/Contents/MacOS/love"

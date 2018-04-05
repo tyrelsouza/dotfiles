@@ -9,7 +9,7 @@ export LESS=' -R '
 export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
 
 # Python Virtualenv + Wrapper
-export PROJECT_HOME=$HOME/AddGeneProjects
+export VIRTUALENVWRAPPER_PYTHON="/usr/local/opt/python/libexec/bin/python"
 export WORKON_HOME=$HOME/.virtualenvs
 if [ -e $HOME/.local/bin/virtualenvwrapper.sh ];then
     source $HOME/.local/bin/virtualenvwrapper.sh
@@ -22,6 +22,7 @@ export PYTHONSTARTUP=$HOME/.pythonstartup.py
 export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 export NPM_PACKAGES="${HOME}/.npm-packages"
 export PATH="$NPM_PACKAGES/bin:$GOPATH/bin:$HOME/bin:$PATH"
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 # Go Stuff
 export GOPATH=$HOME/go
@@ -38,16 +39,9 @@ if [[ $OSTYPE == "darwin*" ]];then
     #CPPFLAGS: -I/usr/local/opt/mariadb@10.1/include
     #PKG_CONFIG_PATH: /usr/local/opt/mariadb@10.1/share/pkgconfig
 fi
-export PATH="$HOME/.Pokemon-Terminal:$PATH"
 
-eval `ssh-agent -s` 
-if [ -e ~/.ssh/id_addgene ];then
-  ssh-add ~/.ssh/id_addgene
-fi
 
-if [ -e $HOME/.credentials ];then
-	source $HOME/.credentials
-fi
 
 source ~/.bash_aliases
 unsetopt share_history
+export PATH=/usr/local/bin:$PATH
