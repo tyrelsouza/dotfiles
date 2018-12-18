@@ -3,12 +3,10 @@ set -e
 
 FILENAME="/Users/tyrel/tmp/screenshot.png"
 screencapture -i $FILENAME
-osascript -e "display notification \"Saved $FILENAME\" with title \"Tyrel Upload\""
 
 sleep 1
 
 MD5=($(md5 -q "$FILENAME"))
-osascript -e "display notification \"Saved $MD5\" with title \"Tyrel Upload\""
 fname=$MD5.png
 scp -rp "$FILENAME" vps:/www/tyrelsouza.com/screenshots/$fname;
 osascript -e "display notification \"Uploaded $FILENAME to https://tyrelsouza.com/screenshots/$fname\" with title \"Tyrel Upload\""
