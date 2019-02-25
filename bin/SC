@@ -2,7 +2,7 @@
 set -e
 
 FILENAME="/Users/tyrel/tmp/screenshot.png"
-screencapture -i $FILENAME
+screencapture -io $FILENAME
 
 sleep 1
 

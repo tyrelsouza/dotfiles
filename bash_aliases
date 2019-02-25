@@ -1,30 +1,17 @@
 #!/usr/local/bin/zsh
-
 # Aliases
-alias adg="workon addgene-core"
-alias adocs='cd $ADDGENE_CORE_REPO_DIR/docs && make html && open $ADDGENE_CORE_REPO_DIR/docs/build/html/index.html'
-alias aenv='env | sort | grep ADDGENE'
 alias ag='\ag --pager="less"'
+alias cat='bat'
 alias cg='cd "$(git rev-parse --show-toplevel)"'
 alias ctags="`brew --prefix`/bin/ctags"
 alias dots="cd $(dirname `readlink ~/.vim`)"
 alias g='git'
 alias gp='git push'
-alias pdb="python -m pdb"
 alias ppjson="python -m json.tool"
 alias shrug="echo -n '¯\_(ツ)_/¯' | pbcopy"
-alias sl="source local.env"
-alias stabbats='sudo killall VDCAssistant && open https://appear.in/stab-bats'
+alias httpie="http"
 
 # Functions
-function adtest () {
-    no_slashes="$(echo "$1" | sed -e 's/\//\./g')";
-    a_test="$(echo "$no_slashes" | sed -e 's/.py//g')";
-    a_project=$(echo -n "$a_test" | python -c "import sys; print sys.stdin.read().split('.', 1)[0]");
-    run_test=$(echo "bin/manage_$a_project.py test $a_test");
-    echo "Evaling $run_test";
-    eval $run_test;
-}
 function cpbr () {
     if branch=$(git symbolic-ref --short -q HEAD)
     then
@@ -43,9 +30,30 @@ function h () {
             history | egrep "$@"
         fi
 }
+settitle() {
+    printf "\033k$1\033\\"
+}
+
+
+tide() {
+    for var in "$@"
+    do
+        tmux new-window -c "/code/tidelift/$var" -n "$var"
+        printf "\033k$var\033\\"
+    done
+
+}
 
 
 # options
 export LESS=-RFX
 export PAGER="less"
 alias love="/Applications/love.app/Contents/MacOS/love"
+
+pullall (){
+    for d in ./*/ ; do (cd "$d" && pwd && git pull); done
+}
+
+new_dock_space (){
+    defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'; killall Dock
+}

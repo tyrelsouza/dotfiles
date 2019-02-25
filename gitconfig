@@ -1,13 +1,12 @@
 [core]
-    excludesfile = ~/.gitignore_global
+    excludesfile = /Users/tyrel/.gitignore_global
 [user]
     email = tyrelsouza@gmail.com
     name = Tyrel Souza
     signingkey = C30AEAC0
-[includeIf "gitdir:/code/addgene/"]
-    path = ~/.gitconfig-addgene
 [commit]
     gpgsign = true
+    template = /Users/tyrel/.stCommitMsg
 [color]
     ui = auto # covers diff = true, status = auto, branch = auto
     interactive = auto
@@ -18,42 +17,59 @@
 [format]
     pretty = format:%C(auto)%h %C(green)%G? %C(red)%<(15,trunc)%aN %C(cyan)%<(15,trunc)%ar %C(white)%<(60,trunc)%s %C(auto)%d
 [alias]
+    comit = commit
     ab = "diff --name-only origin/master"
     alias = "!git config -l | grep alias | cut -c 7-" # show all these aliases
-	bc = !git branch --merged master | grep -v master | xargs git branch -d # delete all merged branches
-	bcc = !git branch -vv | grep ': gone' | cut -d' ' -f1-3 | grep -v master | xargs git branch -D
+    bc = !git branch --merged master | grep -v master | xargs git branch -d # delete all merged branches
+    bcc = !git branch -vv | grep ': gone' | cut -d' ' -f1-3 | grep -v master | xargs git branch -D
     d = diff --color-words # prettier diffs
-    dsf = "!f() { [ \"$GIT_PREFIX\" != \"\" ] && cd "$GIT_PREFIX"; git diff --color $@ | diff-so-fancy | less --tabs=4 -RFX; }; f" # Diff so fancy!
     files = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat # Show files modified per commit
-    lf = "!git diff --name-only origin/master | grep -v .tsv | grep -v .sql"
+    lf = "!git diff --name-only origin/master" # Show all file differing from origin/master
     ll = log --stat --abbrev-commit # Way more information on git log
     lb = log --stat --no-merges origin/master..
-    logtree=  "log --graph --oneline --decorate --all" # show a tree with branches merging 
-    ob = "!$EDITOR $(git diff --name-only origin/master | grep -v .tsv | grep -v .sql | grep -v static)"
-    od = "!$EDITOR $(git diff --name-only HEAD | grep -v .tsv | grep -v .sql | grep -v static)"
+    logtree=  "log --graph --oneline --decorate --all" # show a tree with branches merging
+    ob = "!$EDITOR $(git diff --name-only origin/master)" # Open all files in editor that differ between origin/master and staged/unstaged
+    oscar = "!git commit --amend --author='Oscar Spencer <oscar@tidelift.com>'"
+    od = "!$EDITOR $(git diff --name-only HEAD)" # Open all changed files differ from current HEAD
     p = push
-    pr = !"pr() { git fetch origin pull/$1/head:pr-$1; git checkout pr-$1; }; pr"
     recent = "!git for-each-ref --format=\"%(committerdate:relative) | %(refname)\" --sort=-committerdate refs/heads | sed '/master/d' | head -n 15" # get the most 10 recent branches worked on
-    rd = !git diff $(git describe --tags --abbrev=0 --match v*)
-    rl = !git log $(git describe --tags --abbrev=0 --match v*)..
-	scrum = log --since='1 day ago' --author='Tyrel Souza' --oneline
+    scrum = log --since='1 day ago' --author='Tyrel Souza' --oneline
     st = status # alias like `hg st`, because I like st, shorter is nice!
     tabs = "!git diff --color | sed 's/\t/⌑/g'" # show tabs with ⌑ replacing tabs
     v=describe --tags --match 'v*' # show the current version tag
+
+    # rd = !git diff $(git describe --tags --abbrev=0 --match v*)
+    # rl = !git log $(git describe --tags --abbrev=0 --match v*)..
+    # pr = !"pr() { git fetch origin pull/$1/head:pr-$1; git checkout pr-$1; }; pr"
+    # dsf = "!f() { [ \"$GIT_PREFIX\" != \"\" ] && cd "$GIT_PREFIX"; git diff --color $@ | diff-so-fancy | less --tabs=4 -RFX; }; f" # Diff so fancy!
 [filter "lfs"]
     clean = git-lfs clean %f
     smudge = git-lfs smudge %f
     required = true
 [color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
 [init]
-	templatedir = ~/.git_template
+    templatedir = ~/.git_template
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[diff]
+  	tool = meld
+[difftool]
+  	prompt = false
+[difftool "meld"]
+  	trustExitCode = true
+  	cmd = open -W -a Meld --args \"$LOCAL\" \"$REMOTE\"
+[merge]
+  	tool = meld
+[mergetool]
+	prompt = false
+[mergetool "meld"]
+	trustExitCode = true
+	cmd = open -W -a Meld --args --auto-merge \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output=\"$MERGED\"
