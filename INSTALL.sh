@@ -30,6 +30,7 @@ rm -rf ~/.zshenv
 rm -rf ~/.zshrc
 rm -rf ~/.tmux
 rm -rf ~/.tmux.conf
+rm -rf ~/.pryrc
 
 # set Symlinks to configs
 ln -s $(pwd)/bash_aliases ~/.bash_aliases 
@@ -46,6 +47,7 @@ ln -s $(pwd)/zprofile.local ~/.zprofile.local
 ln -s $(pwd)/zpreztorc ~/.zpreztorc
 ln -s $(pwd)/tmux ~/.tmux
 ln -s $(pwd)/tmux.conf ~/.tmux.conf
+ln -s $(pwd)/pryrc ~/.pryrc
 
 ln -s $HOME/.zprezto/runcoms/zlogin ~/.zlogin
 ln -s $HOME/.zprezto/runcoms/zlogout ~/.zlogout
