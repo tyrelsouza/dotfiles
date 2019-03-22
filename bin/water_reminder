@@ -1,4 +1,4 @@
 #!/bin/bash
 osascript -e "display notification \"Drink Water\" with title \"Drink Water\""
-say "drink water"
+#say "[[volm 0.10]] drink water"
 

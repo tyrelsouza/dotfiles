@@ -1,6 +1,7 @@
 #!/usr/local/bin/zsh
 # Aliases
 alias ag='\ag --pager="less"'
+alias c='\cat'
 alias cat='bat'
 alias cg='cd "$(git rev-parse --show-toplevel)"'
 alias ctags="`brew --prefix`/bin/ctags"
