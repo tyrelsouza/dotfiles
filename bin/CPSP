@@ -1,0 +1,14 @@
+#!/bin/bash
+set -e
+
+FILENAME="/Users/tyrel/tmp/copied.png"
+/usr/local/bin/pngpaste $FILENAME
+
+sleep 1
+
+MD5=($(md5 -q "$FILENAME"))
+fname=$MD5.png
+scp -rp "$FILENAME" vps:/www/tyrelsouza.com/screenshots/cp-$fname;
+osascript -e "display notification \"Uploaded $FILENAME to https://tyrelsouza.com/screenshots/cp-$fname\" with title \"Tyrel Upload\""
+echo https://tyrelsouza.com/screenshots/cp-$fname | pbcopy
+# rm "$FILENAME"
