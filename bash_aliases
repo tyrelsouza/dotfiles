@@ -1,4 +1,5 @@
 #!/usr/local/bin/zsh
+export EDITOR=vim
 # Aliases
 alias ag='\ag --pager="less"'
 alias c='\cat'
@@ -7,10 +8,11 @@ alias cg='cd "$(git rev-parse --show-toplevel)"'
 alias ctags="`brew --prefix`/bin/ctags"
 alias dots="cd $(dirname `readlink ~/.vim`)"
 alias g='git'
-alias gp='git push'
+alias gp='git push -u'
 alias ppjson="python -m json.tool"
 alias shrug="echo -n '¯\_(ツ)_/¯' | pbcopy"
 alias httpie="http"
+alias fuckingip="curl https://wtfismyip.com/json"
 
 # Functions
 function cpbr () {
@@ -31,25 +33,24 @@ function h () {
             history | egrep "$@"
         fi
 }
-settitle() {
-    printf "\033k$1\033\\"
+
+settitle () {
+    echo -ne "\033]0;"$*"\007"
 }
 
 
 tide() {
     for var in "$@"
     do
-        tmux new-window -c "/code/tidelift/$var" -n "$var"
-        printf "\033k$var\033\\"
+        open -a iTerm ~/code/tidelift/$var
+        settitle $var
     done
-
 }
 
 
 # options
 export LESS=-RFX
 export PAGER="less"
-alias love="/Applications/love.app/Contents/MacOS/love"
 
 pullall (){
     for d in ./*/ ; do (cd "$d" && pwd && git pull); done
