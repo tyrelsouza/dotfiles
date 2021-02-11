@@ -4,3 +4,5 @@ vim/view
 chromedriver
 config/fish/fishd.*
 emacs.d/elpa
+midweek*
+watercooler*
