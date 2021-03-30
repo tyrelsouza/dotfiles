@@ -17,3 +17,4 @@ local.fish
 local.env
 vim/sessions
 .vs/
+bin/tidelift
