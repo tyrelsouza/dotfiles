@@ -33,6 +33,7 @@ function h () {
             history | egrep "$@"
         fi
 }
+function pulldep() { git pull; bundle; bundle exec rake db:migrate; }
 
 settitle () {
     echo -ne "\033]0;"$*"\007"
@@ -49,8 +50,8 @@ tide() {
 
 
 # options
-export LESS=-RFX
-export PAGER="less"
+#export LESS=-RFX
+#export PAGER="less"
 
 pullall (){
     for d in ./*/ ; do (cd "$d" && pwd && git pull); done

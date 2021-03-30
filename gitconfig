@@ -1,6 +1,8 @@
 [core]
     excludesfile = /Users/tyrel/.gitignore_global
 	editor = vim
+	symlinks = false
+	pager = less -F -X
 [user]
     email = tyrelsouza@gmail.com
     name = Tyrel Souza
@@ -35,6 +37,7 @@
     logtree=  "log --graph --oneline --decorate --all" # show a tree with branches merging
     noop="!git commit --allow-empty -m 'no op'"
     ob = "!$EDITOR $(git diff --name-only origin/main)" # Open all files in editor that differ between origin/main and staged/unstaged
+    amanda = "!git commit --amend --author='Amanda P McDermott <amanda@tidelift.com>'"
     oscar = "!git commit --amend --author='Oscar Spencer <oscar@tidelift.com>'"
     od = "!$EDITOR $(git diff --name-only HEAD)" # Open all changed files differ from current HEAD
     p = push
@@ -79,3 +82,13 @@
 [mergetool "meld"]
 	trustExitCode = true
 	cmd = open -W -a Meld --args --auto-merge \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output=\"$MERGED\"
+[protocol "http"]
+    allow = never
+[protocol "git"]
+    allow = never
+[fetch]
+    fsckObjects = true
+[transfer]
+    fsckObjects = true
+[receive]
+    fsckObjects = true
