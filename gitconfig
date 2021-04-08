@@ -1,6 +1,6 @@
 [core]
     excludesfile = /Users/tyrel/.gitignore_global
-	editor = vim
+	editor = nvim
 	symlinks = false
 	pager = less -F -X
 [user]
