@@ -6,7 +6,7 @@
 [user]
     email = tyrelsouza@gmail.com
     name = Tyrel Souza
-    signingkey = C30AEAC0
+    signingkey = F3614B02ACBE438E
 [commit]
     gpgsign = true
     template = /Users/tyrel/.stCommitMsg
@@ -20,6 +20,8 @@
 [format]
     pretty = format:%C(auto)%h %C(green)%G? %C(red)%<(15,trunc)%aN %C(cyan)%<(15,trunc)%ar %C(white)%<(60,trunc)%s %C(auto)%d
 [alias]
+    club = !club story $1 --git-branch
+    cleanslate = "!git reset $(git merge-base main $(git rev-parse --abbrev-ref HEAD))"
     comit = commit
     ab = "diff --name-only origin/main"
     alias = "!git config -l | grep alias | cut -c 7-" # show all these aliases

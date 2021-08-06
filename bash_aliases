@@ -1,5 +1,7 @@
 #!/usr/local/bin/zsh
-export EDITOR=vim
+export EDITOR=nvim
+export VISUAL=nvim
+export PYENV_ROOT=/Users/tyrel/.pyenv
 # Aliases
 alias ag='\ag --pager="less"'
 alias c='\cat'
@@ -13,6 +15,7 @@ alias ppjson="python -m json.tool"
 alias shrug="echo -n '¯\_(ツ)_/¯' | pbcopy"
 alias httpie="http"
 alias fuckingip="curl https://wtfismyip.com/json"
+alias ls="exa -lhBgUm --git --time-style long-iso --icons"
 
 # Functions
 function cpbr () {
