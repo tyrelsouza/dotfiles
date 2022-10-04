@@ -71,6 +71,5 @@ function lab () {
   deactivate
 }
 
-# TODO: Rename repo
-source ~/code/dotfiles-linux-bash/jobs/tidelift.sh
-source ~/code/dotfiles-linux-bash/jobs/everquote.sh
+# source ~/code/dotfiles/jobs/tidelift.sh
+source ~/code/dotfiles/jobs/everquote.sh
