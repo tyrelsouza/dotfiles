@@ -1,0 +1,3 @@
+#!/bin/bash
+#rofi -modi combi -show combi -combi-modi window,drun,ssh,run -no-levenshtein-sort
+rofi -modi combi -show combi -combi-modi window,drun,ssh,run -no-levenshtein-sort -config /home/tyrel/.config/rofi/config.rasi
