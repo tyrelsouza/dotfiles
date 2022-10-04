@@ -1,3 +1,0 @@
-#!/bin/bash
-club search -o "tyrelsouza" 'state:"In Progress"'
-club search -o "tyrelsouza" 'state:"Ready for Review"'
