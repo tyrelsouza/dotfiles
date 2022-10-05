@@ -1,3 +1,3 @@
 function dots
-	cd ~/code/gitlab/tyrelsouza/dotfiles/
+	cd ~/code/dotfiles/
 end
