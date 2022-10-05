@@ -48,7 +48,7 @@ map <Leader>v :WhichKey<CR>
 
 
 set tabstop=2
-set shell=/usr/bin/zsh
+set shell=/bin/zsh
 set shiftwidth=2
 set expandtab 
 set hidden
@@ -163,7 +163,7 @@ require'nvim-treesitter.configs'.setup {
     enable = false,
 
     -- list of language that will be disabled
-    disable = {"vim"},
+    disable = {"vim", "c", "rust"},
 
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).

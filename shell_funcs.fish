@@ -1,17 +1,4 @@
 #!/usr/bin/fish
-set -x EDITOR nvim
-set -x VISUAL nvim
-
-# Aliases
-#alias ag='ag --pager="less -r"'
-alias cat='bat'
-alias dots='cd ~/code/dotfiles/'
-alias fuckingip="curl https://wtfismyip.com/json"
-alias g='git'
-alias gp='git push -u'
-alias ls="exa -lhFgxUm --git --time-style long-iso --group-directories-first"
-alias vimini="vim ~/.config/nvim/init.vim"
-alias vim=nvim
 
 # Functions
 function httpdiff  
@@ -21,6 +8,11 @@ end
 function cg
    set _dir_ (git rev-parse --show-toplevel)
    cd $_dir_
+end
+
+function gact
+    set base (git rev-parse --show-toplevel)
+    source $base/venv/bin/activate.fish
 end
 
 function cpbr 
@@ -40,15 +32,24 @@ end
 
 
 function pullall 
-    for d in ./*/ ; do (cd "$d" && pwd && git pull); end
+    for d in ./*/
+        cd "$d" && pwd && git pull 
+        cd ..
+    end
 end
 
 function gh_mainall 
-    for d in ./*/ ; do (cd "$d" && pwd && git checkout main && git pull); end
+    for d in ./*/
+        cd "$d" && pwd && git checkout main; git pull 
+        cd ..
+    end
 end
 
 function allbranches 
-    for d in ./*/ ; do (cd "$d" && pwd && git remote -v origin && git pull); end
+    for d in ./*/
+        cd "$d"  && pwd && git remote -v;git pull 
+        cd ..
+    end
 end
 
 function new_dock_space 
