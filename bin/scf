@@ -1,0 +1,103 @@
+#!/usr/bin/env bash
+# Take a screenshot of a selected area and upload it somewhere.
+#
+# Requires:
+# * scrot
+# * xclip
+
+### CHANGE THESE FUNCTIONS:
+
+upload() {
+    # Given a filepath and a target name, upload the screenshot
+    chmod +r "$1"
+    scp "$1" "tyrelsouza.com:/www/tyrel.pw/s/$2"
+}
+
+url() {
+    # Given a target name, echo the expected URL of the uploaded screenshot
+    echo "https://tyrel.pw/s/$1"
+}
+
+### (End)
+
+screenshot() {
+    if $(which maim &> /dev/null); then
+        maim $1 || return -1
+    elif $(which scrot &> /dev/null); then
+        scrot -s $1 || return -1
+    elif $(which screencapture &> /dev/null); then
+        screencapture -i $1 || return -1
+    else
+        echo "No screenshot utility found. Install scrot."
+        return -1
+    fi
+}
+
+clipboard() {
+    if $(which xclip &> /dev/null); then
+        echo $1 | xclip -r -selection clipboard
+    elif $(which pbcopy &> /dev/null); then
+        echo $1 | pbcopy
+    else
+        echo "No clipboard utility found. Install xclip."
+        return -1
+    fi
+}
+
+notify() {
+    if $(which osascript &> /dev/null); then
+        osascript -e "display notification \"$2\" with title \"$1\""
+    elif $(which notify-send &> /dev/null); then
+        notify-send "$1" "$2"
+    else
+        echo "Notification not supported, skipped: $1: $2"
+        return -1
+    fi
+}
+
+fail() {
+    echo "$2"
+    exit $1
+}
+
+# Fail early
+set -e
+
+# If a path is given, use that instead of taking a screenshot
+target="$1"
+
+name="$(date '+%d')"
+tmppath="$(mktemp -t ss.XXXX.png)" || fail 1 "failed to allocate a temporary file"
+
+# Make it hard to guess
+random_string=$(head -c512 /dev/urandom | shasum | head -c4)
+
+# Compose full filename
+filename="${name}_${random_string}.png"
+
+if [[ "${target}" ]]; then
+    cp -p "${target}" "${tmppath}"
+else
+    # Take the screenshot
+    screenshot "${tmppath}" || fail 2 "failed to take screenshot"
+fi
+
+# Clear clipboard
+clipboard " "
+
+# Upload it
+url=$(url "${filename}")
+echo "Uploading: $url"
+upload "${tmppath}" "${filename}" && rm "${tmppath}" || fail 3 "failed to upload ${tmppath}"
+
+# Copy to clipboard
+clipboard "${url}"
+echo "Copied to clipboard."
+
+# Clean up
+if [[ -f "${tmppath}" ]]; then
+    rm "${tmppath}"
+fi
+
+notify "Uploaded Screenshot" "${url}"
+

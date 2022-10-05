@@ -1,2 +1,6 @@
 #!/bin/bash
-$(/Applications/Emacs.app/Contents/MacOS/Emacs "$@") &
+
+APPS=/Applications
+if [ -d "$APPS" ]; then
+  $(/Applications/Emacs.app/Contents/MacOS/Emacs "$@") &
+fi
