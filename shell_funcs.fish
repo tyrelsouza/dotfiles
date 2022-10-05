@@ -10,7 +10,7 @@ function cg
    cd $_dir_
 end
 
-function gact
+function ve
     set base (git rev-parse --show-toplevel)
     source $base/venv/bin/activate.fish
 end

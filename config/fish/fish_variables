@@ -8,9 +8,9 @@ SETUVAR _fisher_patrickf1_2F_fzf_2E_fish_files:\x7e/\x2econfig/fish/functions/_f
 SETUVAR _fisher_patrickf3139_2F_colored_2D_man_2D_pages_files:\x7e/\x2econfig/fish/functions/cless\x2efish\x1e\x7e/\x2econfig/fish/functions/man\x2efish
 SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejorgebucaran/hydro\x1edanhper/fish\x2dssh\x2dagent\x1epatrickf1/fzf\x2efish\x1epatrickf3139/colored\x2dman\x2dpages
 SETUVAR _fisher_upgraded_to_4_4:\x1d
-SETUVAR _hydro_git_64715:main\u2022\x20
 SETUVAR _hydro_git_69626:main\u2022\x20
 SETUVAR _hydro_git_72501:main\u2022\x20\u21911\x20
+SETUVAR _hydro_git_87186:main\u2022\x20
 SETUVAR _hydro_git_92996:main\u2022\x20
 SETUVAR _hydro_git_93415:main\u2022\x20
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
