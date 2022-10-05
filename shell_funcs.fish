@@ -3,25 +3,24 @@ set -x EDITOR nvim
 set -x VISUAL nvim
 
 # Aliases
-alias ag='\ag --pager="less -r"'
-alias c='\cat'
+#alias ag='ag --pager="less -r"'
 alias cat='bat'
-alias cg='cd "(git rev-parse --show-toplevel)"'
 alias dots='cd ~/code/dotfiles/'
 alias fuckingip="curl https://wtfismyip.com/json"
 alias g='git'
 alias gp='git push -u'
-alias httpie="http"
 alias ls="exa -lhFgxUm --git --time-style long-iso --group-directories-first"
-alias pg='pushd "(git rev-parse --show-toplevel)"'
-alias ppjson="python -m json.tool"
-alias shrug="echo -n '¯\_(ツ)_/¯' | pbcopy"
 alias vimini="vim ~/.config/nvim/init.vim"
 alias vim=nvim
 
 # Functions
 function httpdiff  
   diff --color -r -c <(curl -s "$1" 2>&1) <(curl -s "$2" 2>&1)
+end
+
+function cg
+   set _dir_ (git rev-parse --show-toplevel)
+   cd $_dir_
 end
 
 function cpbr 

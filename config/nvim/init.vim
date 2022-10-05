@@ -56,6 +56,7 @@ set background=dark
 set autoindent
 set preserveindent
 set copyindent
+set mouse=
 
 " Set Colors
 if (has("termguicolors"))
