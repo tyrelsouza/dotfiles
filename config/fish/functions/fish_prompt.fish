@@ -1,31 +1,3 @@
-function fish_prompt --description 'Write out the prompt'                        
-     # virtualenv stuff
-     if set -q VIRTUAL_ENV                                                        
-         echo -n -s (set_color -b blue white) "(" (basename "$VIRTUAL_ENV") ")" (set_color normal) " "
-     end                                                                          
-     set -l last_status $status                                                   
-                                                                                  
-     if not set -q __fish_prompt_normal                                           
-         set -g __fish_prompt_normal (set_color normal)                           
-     end                                                                          
-                                                                                  
-     # PWD                                                                        
-     set_color $fish_color_cwd                                                    
-     echo -n (prompt_pwd)                                                         
-     set_color normal                                                             
-                                                                                  
-     printf '%s ' (__fish_git_prompt)                                             
-                                                                                  
-     if not test $last_status -eq 0                                               
-     set_color $fish_color_error                                                  
-     end                                                                          
-     
-     # Set a pretty date                                                                             
-     set_color -b black yellow                                                    
-     echo -n '['(date "+%I:%M %P")']'                                             
-     set_color normal                                                             
-
-     echo -n ' $ '                                                                
-                                                                                  
-     set_color normal                                                             
+function fish_prompt --description Hydro
+    echo -e "$_hydro_color_pwd$_hydro_pwd$hydro_color_normal $_hydro_color_git$$_hydro_git$hydro_color_normal$_hydro_color_duration$_hydro_cmd_duration$hydro_color_normal$_hydro_status$hydro_color_normal "
 end

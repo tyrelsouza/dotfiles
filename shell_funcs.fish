@@ -17,6 +17,7 @@ alias pg='pushd "(git rev-parse --show-toplevel)"'
 alias ppjson="python -m json.tool"
 alias shrug="echo -n '¯\_(ツ)_/¯' | pbcopy"
 alias vimini="vim ~/.config/nvim/init.vim"
+alias vim=nvim
 
 # Functions
 function httpdiff  
