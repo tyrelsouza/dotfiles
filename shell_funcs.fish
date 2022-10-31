@@ -47,7 +47,10 @@ end
 
 function allbranches 
     for d in ./*/
-        cd "$d"  && pwd && git remote -v;git pull 
+        cd "$d"
+        set branch (git symbolic-ref --short -q HEAD)
+        set repo (basename (pwd))
+        echo $branch $repo
         cd ..
     end
 end

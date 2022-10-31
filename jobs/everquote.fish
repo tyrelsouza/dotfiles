@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ALIASES
-alias kubectl=/opt/homebrew/Cellar/kubernetes-cli@1.22/1.22.10/bin/kubectl
+alias kubectl=/opt/homebrew/Cellar/kubernetes-cli@1.22/1.22.15/bin/kubectl
 alias ibrew="arch -x86_64 /usr/local/bin/brew"
 
 
@@ -16,11 +16,13 @@ end
 function kubestaging () 
   kubectl config use-context shared1-east1-us-staging
   kubectl config set-context --current --namespace=remarketing
+  set -x AWS_PROFILE eks
 end
 
 function kubeprod () 
   kubectl config use-context shared1-east1-us-prod
   kubectl config set-context --current --namespace=remarketing
+  set -x AWS_PROFILE eks
 end
 function setup_crypto () 
   # Needed for cryptography

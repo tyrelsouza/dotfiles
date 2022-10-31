@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ALIASES
-alias kubectl=/opt/homebrew/Cellar/kubernetes-cli@1.22/1.22.10/bin/kubectl
+alias kubectl=/opt/homebrew/Cellar/kubernetes-cli@1.22/1.22.15/bin/kubectl
 alias ibrew="arch -x86_64 /usr/local/bin/brew"
 
 
