@@ -2,6 +2,7 @@ syntax enable
 let mapleader = " "
 
 call plug#begin('~/.vim/plugged')
+  Plug 'atelierbram/vim-colors_atelier-schemes'
   Plug 'robertmeta/nofrils'
   Plug 'vim-test/vim-test'
   Plug 'hashivim/vim-terraform'
@@ -48,7 +49,7 @@ map <Leader>v :WhichKey<CR>
 
 
 set tabstop=2
-set shell=/bin/zsh
+set shell=/usr/local/bin/fish
 set shiftwidth=2
 set expandtab 
 set hidden
@@ -62,7 +63,7 @@ set mouse=
 if (has("termguicolors"))
  set termguicolors
 endif
-colorscheme space-vim-dark
+colorscheme Atelier_SulphurpoolDark
 hi Comment cterm=italic
 
 " Relative numbers and when not in buffer set absolute numbers
@@ -160,7 +161,7 @@ require'nvim-treesitter.configs'.setup {
 
   highlight = {
     -- `false` will disable the whole extension
-    enable = false,
+    enable = true,
 
     -- list of language that will be disabled
     disable = {"vim", "c", "rust"},
@@ -194,3 +195,6 @@ let test#strategy = "neovim"
 
 " Mypy
 nmap <silent> <leader>mp :Mypy<CR>
+
+
+let g:indentLine_setConceal = 0
