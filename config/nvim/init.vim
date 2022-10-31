@@ -6,7 +6,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'robertmeta/nofrils'
   Plug 'vim-test/vim-test'
   Plug 'hashivim/vim-terraform'
-  Plug 'Yggdroot/indentLine'
   Plug 'rmagatti/auto-session'
   Plug 'rmagatti/session-lens'
   Plug 'ludovicchabant/vim-gutentags'
@@ -196,5 +195,3 @@ let test#strategy = "neovim"
 " Mypy
 nmap <silent> <leader>mp :Mypy<CR>
 
-
-let g:indentLine_setConceal = 0
