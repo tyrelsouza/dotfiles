@@ -1,4 +1,4 @@
 #!/bin/bash
 
 git add . # YOLO
-nix-build ./_ubuntu
+nix build ./_ubuntu --extra-experimental-features "nix-command flakes"
