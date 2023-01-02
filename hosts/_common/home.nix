@@ -10,6 +10,7 @@
       ctags
       exa
       fzf
+      fd
       ripgrep
       tree-sitter
       wget
