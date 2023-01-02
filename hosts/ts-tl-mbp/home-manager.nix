@@ -8,6 +8,7 @@
     home.sessionVariables = {
       PAGER = "less -R";
       EDITOR = "nvim";
+      XDG_CONFIG_HOME = "/Users/tyrel/.config";
     };
 
     home.packages = with pkgs; [
