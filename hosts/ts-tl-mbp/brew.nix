@@ -3,10 +3,13 @@
   homebrew = {
     enable = true;
     casks = [
-    "alfred"
-    "discord"
-    "slack"
-    "karabiner-elements"
+      "alfred"
+      "discord"
+      "divvy"
+      "firefox"
+      "karabiner-elements"
+      "slack"
+      "thunderbird"
     ];
   };
 }

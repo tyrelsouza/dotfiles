@@ -8,18 +8,9 @@
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs"; 
   };
-
-
   outputs = { self, nixpkgs, home-manager, darwin }: {
     defaultPackage.x86_64-darwin = home-manager.defaultPackage.x86_64-darwin;
-    homeConfigurations."ts-tl-mbp" = {
-      "tyrel" = home-manager.lib.homeManagerConfiguration {
-        system = "x86_64-darwin";
-        homeDirectory = "/Users/tyrel";
-        username = "tyrel";
-        configuration.imports = [ ./home.nix ];
-      };
-    };
+
     darwinConfigurations."ts-tl-mbp" = darwin.lib.darwinSystem {
       system = "x86_64-darwin";
       modules = [

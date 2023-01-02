@@ -5,13 +5,6 @@
   home-manager.users.tyrel = { pkgs, ... }: {
     programs.home-manager.enable = true;
     home.stateVersion = "22.05";
-
-    #home.file = {
-    #  bin.source = lib.file.mkOutOfStoreSymlink "../../bin";
-    #};
-
-
-
     home.sessionVariables = {
       PAGER = "less -R";
       EDITOR = "nvim";
@@ -19,6 +12,8 @@
 
     home.packages = with pkgs; [
       ctags
+      exa
+      bat
       fzf
       ripgrep
       wget
