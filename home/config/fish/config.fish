@@ -1,7 +1,9 @@
 if status is-interactive
-    # Commands to run in interactive sessions can go here
+    set -gx PATH /Users/tyrel/bin $PATH
 
-    # Commands to run in interactive sessions can go here
+    set -x XDG_DATA_HOME "$HOME/.local/share"
+    set -x XDG_CONFIG_HOME "$HOME/.config"
+    set -x XDG_STATE_HOME "$HOME/.local/state"
 
     set --universal hydro_color_pwd green
     set --universal hydro_color_git red
@@ -9,4 +11,5 @@ if status is-interactive
     source ~/.config/fish/shell_funcs.fish
     source ~/.config/fish/shell_aliases.fish
     source ~/.config/fish/everquote.fish
+
 end
