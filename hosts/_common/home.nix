@@ -11,6 +11,7 @@
       exa
       fzf
       ripgrep
+      tree-sitter
       wget
     ];
 
