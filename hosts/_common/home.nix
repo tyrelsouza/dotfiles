@@ -2,7 +2,6 @@
 {
     home.stateVersion = "22.05";
     home.sessionVariables = {
-      XDG_CONFIG_HOME = "/Users/tyrel/.config";
       PAGER = "less -R";
       EDITOR = "nvim";
     };

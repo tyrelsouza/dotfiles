@@ -17,7 +17,7 @@
           inherit pkgs;
           modules = [
             ../hosts/blackbox-jr/default.nix
-            ../hosts/_common/home-manager.nix
+            ../hosts/blackbox-jr/home-manager.nix
             {
             home = {
               homeDirectory = "/home/tyrel";

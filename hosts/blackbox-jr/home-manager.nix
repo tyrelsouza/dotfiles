@@ -1,14 +1,14 @@
 { pkgs, ... }:
 {
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
-  home-manager.users.tyrel = { pkgs, ... }: {
-    programs.home-manager.enable = true;
-    home.stateVersion = "22.05";
-    home.sessionVariables = {
-      XDG_CONFIG_HOME = "/home/tyrel/.config";
-    };
+  # Common Imports
+  imports = [
+      ../_common/home.nix
+      ../_common/programs.nix
+      ../_common/xdg.nix
+  ];
+  home.sessionVariables = {
+    XDG_CONFIG_HOME = "/home/tyrel/.config";
+  };
 
-  }; # -- HomeManager
  
 }

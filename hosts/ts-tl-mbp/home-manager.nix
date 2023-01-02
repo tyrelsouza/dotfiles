@@ -9,6 +9,9 @@
         ../_common/programs.nix
         ../_common/xdg.nix
     ];
+    home.sessionVariables = {
+      XDG_CONFIG_HOME = "/Users/tyrel/.config";
+    };
 
     # XDG CONFIGS
     xdg.configFile."karabiner" = {
