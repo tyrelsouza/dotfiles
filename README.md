@@ -2,9 +2,11 @@
 
 Install Nix and Home-Manager
 ```shell
+$ export NIX_PATH=nixpkgs=/nix/var/nix/profiles/per-user/tyrel/channels/nixpkgs:/nix/var/nix/profiles/per-user/tyrel/channels
 $ nix-channel --add https://nixos.org/channels/nixos-22.11 nixos
 $ nix-channel --add https://github.com/nix-community/home-manager/archive/release-22.11.tar.gz home-manager 
 $ nix-channel --update
+$ nix-shell '<home-manager>' -A install
 ```
 
 For Macos:
