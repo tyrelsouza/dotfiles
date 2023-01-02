@@ -6,24 +6,25 @@ return function(use)
         -- Prevents reinstall of treesitter plugins every boot
         vim.opt.runtimepath:append(parser_install_dir)
 
-	-- Treesitter is managed by the package config, we just manage configs/deps here
-	-- use({ "nvim-treesitter/nvim-treesitter-refactor" })
-	-- use({ "RRethy/nvim-treesitter-textsubjects" })
-	-- require("nvim-treesitter.configs").setup({
-	-- 	highlight = { enable = true, disable = { "lua" } },
-	-- 	indent = { enable = true },
-	-- 	refactor = { highlight_definitions = { enable = true } },
-	-- 	incremental_selection = { enable = true },
-	-- 	matchup = { enable = true },
-	-- 	textsubjects = {
-	-- 		enable = true,
-	-- 		prev_selection = ",",
-	-- 		keymaps = {
-	-- 			["."] = "textsubjects-smart",
-	-- 		},
-	-- 	},
-	--  parser_install_dir = parser_install_dir,
-	-- })
+	   -- Treesitter is managed by the package config, we just manage configs/deps here
+	   use({ "nvim-treesitter/nvim-treesitter-refactor" })
+       use({ "RRethy/nvim-treesitter-textsubjects" })
+
+        require("nvim-treesitter.configs").setup({
+        	-- highlight = { enable = true, disable = { "lua" } },
+        	-- indent = { enable = true },
+        	-- refactor = { highlight_definitions = { enable = true } },
+        	-- incremental_selection = { enable = true },
+        	-- matchup = { enable = true },
+        	-- textsubjects = {
+        	-- 	enable = true,
+        	-- 	prev_selection = ",",
+        	-- 	keymaps = {
+        	-- 		["."] = "textsubjects-smart",
+        	-- 	},
+        	-- },
+            parser_install_dir = parser_install_dir,
+        })
 
         use({'atelierbram/vim-colors_atelier-schemes'})
         use({'robertmeta/nofrils'})
