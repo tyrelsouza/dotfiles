@@ -16,9 +16,10 @@
       modules = [
   	    home-manager.darwinModules.home-manager
 	      ../hosts/ts-tl-mbp/default.nix
+	      ../hosts/_common/home-manager.nix
+	      ../hosts/_common/ts-tl-mbp/fonts.nix
 	      ../hosts/ts-tl-mbp/home-manager.nix
 	      ../hosts/ts-tl-mbp/brew.nix
-	      ../hosts/ts-tl-mbp/fonts.nix
       ];
     };
   };

@@ -8,7 +8,6 @@
     home.sessionVariables = {
       PAGER = "less -R";
       EDITOR = "nvim";
-      XDG_CONFIG_HOME = "/Users/tyrel/.config";
     };
 
     home.packages = with pkgs; [
@@ -72,10 +71,6 @@
       };
       "fish" = {
         source = ../../home/config/fish;
-        recursive = true;
-      };
-      "karabiner" = {
-        source = ../../home/config/karabiner;
         recursive = true;
       };
     };
