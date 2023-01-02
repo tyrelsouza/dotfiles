@@ -22,5 +22,11 @@
         source = ../../home/tmux.conf;
         recursive = true;
       };
+      "bin" = {
+        source = ../../home/bin;
+        recursive = true;
+
+      };
     };
+
 }
