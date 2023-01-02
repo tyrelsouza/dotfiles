@@ -48,7 +48,6 @@ map <Leader>v :WhichKey<CR>
 
 
 set tabstop=2
-set shell=/usr/local/bin/fish
 set shiftwidth=2
 set expandtab 
 set hidden
@@ -174,8 +173,8 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
-"Guten Tags
-set statusline+=%{gutentags#statusline()}
+" Guten Tags
+" set statusline+=%{gutentags#statusline()}
 
 
 " Indent Line

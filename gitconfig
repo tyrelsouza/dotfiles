@@ -8,7 +8,7 @@
     name = Tyrel Souza
     signingkey = F3614B02ACBE438E
 [commit]
-    gpgsign = true
+    #gpgsign = true
     template = /Users/tyrel/.stCommitMsg
 [color]
     ui = auto # covers diff = true, status = auto, branch = auto

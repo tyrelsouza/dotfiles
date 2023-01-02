@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 {
   services.nix-daemon.enable = true;
   programs.zsh.enable = true;
@@ -11,15 +11,20 @@
     programs.home-manager.enable = true;
     home.stateVersion = "22.05";
 
+    home.file = {
+      bin.source = lib.file.mkOutOfStoreSymlink "../../bin";
+    };
+
+
+
     home.sessionVariables = {
       PAGER = "less -R";
       EDITOR = "nvim";
     };
 
     home.packages = with pkgs; [
-      fish
       ctags
-      htop
+      fzf
       ripgrep
       wget
     ];
@@ -27,8 +32,8 @@
     programs.tmux = {
       enable = true;
     };
-    home.file.".tmux".source = "../../tmux";
-    home.file.".tmux.conf".source = "../../tmux.conf";
+    #home.file.".tmux".source = "../../tmux";
+    #home.file.".tmux.conf".source = "../../tmux.conf";
 
     programs.git = {
       enable = true;
@@ -53,14 +58,26 @@
       };
     };
 
-      #home.file."bin".source = "../../bin";
-      #home.file.".gitconfig".source = "gitconfig";
-      #home.file.".gitignore".source = "../../gitignore";
-      #home.file.".hushlogin".source = "../../hushlogin";
-      #home.file.".pythonstartup.py".source = "../../pythonstartup.py";
-      #home.file.".shell_aliases".source = "../../shell_aliases";
-      #home.file.".shell_funcs".source = "../../shell_funcs";
-      #home.file.".shell_funcs.fish".source = "../../shell_funcs.fish";
+    programs.fish = {
+     enable = true;
+    };
+    xdg.configFile = {
+      "fish" = {
+        source = ../../config/fish;
+        recursive = true;
+      };
+    };
+
+
+    programs.htop = {
+      enable = true;
+    };
+    #xdg.configFile = {
+    #  "htop" = {
+    #    source = ../../config/htop;
+    #    recursive = true;
+    #  };
+    #};
 
   }; # -- HomeManager
  

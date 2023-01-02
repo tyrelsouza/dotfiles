@@ -12,6 +12,6 @@ if status is-interactive
     set --universal hydro_color_pwd green
     set --universal hydro_color_git red
 
-    source ~/code/dotfiles/shell_aliases
-    source ~/code/dotfiles/shell_funcs.fish
+    # source ~/code/dotfiles/shell_aliases
+    # source ~/code/dotfiles/shell_funcs.fish
 end
