@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, ... }:
 {
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
@@ -6,9 +6,9 @@
     programs.home-manager.enable = true;
     home.stateVersion = "22.05";
 
-    home.file = {
-      bin.source = lib.file.mkOutOfStoreSymlink "../../bin";
-    };
+    #home.file = {
+    #  bin.source = lib.file.mkOutOfStoreSymlink "../../bin";
+    #};
 
 
 
