@@ -13,6 +13,7 @@
       fd
       ripgrep
       tree-sitter
+      silver-searcher
       wget
     ];
 

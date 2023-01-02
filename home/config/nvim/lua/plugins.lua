@@ -2,17 +2,16 @@ vim.cmd([[autocmd BufWritePost plugins.lua PackerCompile]])
 
 return function(use)
   -- Prevents reinstall of treesitter plugins every boot
-  local parser_install_dir = vim.fn.stdpath("cache") .. "/treesitters"
-  vim.fn.mkdir(parser_install_dir, "p")
-  vim.opt.runtimepath:append(parser_install_dir)
+  -- local parser_install_dir = vim.fn.stdpath("cache") .. "/treesitters"
+  -- vim.fn.mkdir(parser_install_dir, "p")
+  -- vim.opt.runtimepath:append(parser_install_dir)
 
-  -- Treesitter is managed by the package config, we just manage configs/deps here
-  use({ "nvim-treesitter/nvim-treesitter-refactor" })
-  use({ "RRethy/nvim-treesitter-textsubjects" })
-
-  require("nvim-treesitter.configs").setup({
-    parser_install_dir = parser_install_dir,
-  })
+  -- -- Treesitter is managed by the package config, we just manage configs/deps here
+  -- use({ "nvim-treesitter/nvim-treesitter-refactor" })
+  -- use({ "RRethy/nvim-treesitter-textsubjects" })
+  -- require("nvim-treesitter.configs").setup({
+  --   parser_install_dir = parser_install_dir,
+  -- })
 
   use({'atelierbram/vim-colors_atelier-schemes'})
   use({'robertmeta/nofrils'})
