@@ -31,9 +31,7 @@ return function(use)
         use({'hashivim/vim-terraform'})
         use({'rmagatti/auto-session'})
         use({'rmagatti/session-lens',
-            config = function(){
-                require'session-lens'.setup { path_display={'shorten'},  }
-            }
+            config = function() require'session-lens'.setup { path_display={'shorten'} } end
         })
         use({'ludovicchabant/vim-gutentags'})
         -- use({'ervandew/supertab'})
@@ -52,9 +50,7 @@ return function(use)
         }
         use({
             'nvim-telescope/telescope.nvim',
-            config = function () {
-                require('telescope').setup{ file_ignore_patterns = {"node_modules","./venv/"}, }
-            }
+            config = function () require('telescope').setup{ file_ignore_patterns = {"node_modules","./venv/"} } end
         })
         use({'thoughtbot/vim-rspec'})
         use({'voldikss/vim-floaterm'})
