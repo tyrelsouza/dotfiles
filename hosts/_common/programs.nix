@@ -4,6 +4,9 @@
     programs.tmux = {
       enable = true;
     };
+    programs.zsh.prezto = {
+      enable = true;
+    };
 
     programs.git = {
       enable = true;
