@@ -12,7 +12,7 @@
 
   outputs = { self, nixpkgs, home-manager, darwin }: {
     defaultPackage.x86_64-darwin = home-manager.defaultPackage.x86_64-darwin;
-    homeConfigurations = {
+    homeConfigurations."ts-tl-mbp" = {
       "tyrel" = home-manager.lib.homeManagerConfiguration {
         system = "x86_64-darwin";
         homeDirectory = "/Users/tyrel";
