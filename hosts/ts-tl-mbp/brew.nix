@@ -7,6 +7,7 @@
       "discord"
       "divvy"
       "firefox"
+      "jetbrains-toolbox"
       "karabiner-elements"
       "slack"
       "thunderbird"

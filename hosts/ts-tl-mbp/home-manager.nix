@@ -69,6 +69,17 @@
     #  };
     #};
 
+
+
+
+    # Brew's XDG CONFIGS
+    xdg.configFile = {
+      "karabiner" = {
+        source = ../../config/karabiner;
+        recursive = true;
+      };
+    };
+
   }; # -- HomeManager
  
 }
