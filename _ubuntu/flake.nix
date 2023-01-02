@@ -6,22 +6,27 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = { self, nixpkgs, home-manager} : {
-    defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
-
-    homeConfigurations = {
-      "tyrel" = home-manager.lib.homeManagerConfiguration {
-        targets.genericLinux.enable = true;
-        system = "x86_64-linux";
-        homeDirectory = "/home/tyrel";
-        username = "tyrel";
-        configuration.imports = [ 
-	      ../hosts/blackbox-jr/default.nix
-	      ../hosts/blackbox-jr/home-manager.nix
+  outputs = { self, nixpkgs, home-manager } : 
+    let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+    in {
+      defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
+      homeConfigurations = {
+        "tyrel" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            ../hosts/blackbox-jr/default.nix
+            ../hosts/_common/home-manager.nix
+            {
+            home = {
+              homeDirectory = "/home/tyrel";
+              username = "tyrel";
+              stateVersion = "22.05";
+            };
+          }
         ];
       };
     };
-
-
   };
 }
