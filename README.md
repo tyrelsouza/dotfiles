@@ -1,6 +1,11 @@
 # Nix
 
 Install Nix and Home-Manager
+```shell
+$ nix-channel --add https://github.com/LnL7/nix-darwin/archive/master.tar.gz darwin 
+$ nix-channel --add https://github.com/nix-community/home-manager/archive/release-22.11.tar.gz home-manager 
+$ nix-channel --update
+```
 
 For Macos:
 
