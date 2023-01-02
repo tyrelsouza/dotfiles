@@ -9,6 +9,8 @@
       XDG_CONFIG_HOME = "/Users/tyrel/.config";
     };
 
+    # Load Common Packages
+    common = pkgs.callPackage ../_common/homepkgs.nix {};
 
     # XDG CONFIGS
     xdg.configFile = {
@@ -17,7 +19,6 @@
         recursive = true;
       };
     };
-
   }; # -- HomeManager
  
 }

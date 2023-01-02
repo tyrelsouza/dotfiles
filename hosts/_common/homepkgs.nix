@@ -1,9 +1,5 @@
 { pkgs, ... }:
 {
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
-  home-manager.users.tyrel = { pkgs, ... }: {
-    programs.home-manager.enable = true;
     home.stateVersion = "22.05";
     home.sessionVariables = {
       PAGER = "less -R";
@@ -74,7 +70,4 @@
         recursive = true;
       };
     };
-
-  }; # -- HomeManager
- 
 }
