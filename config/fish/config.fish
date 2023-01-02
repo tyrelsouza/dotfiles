@@ -14,4 +14,7 @@ if status is-interactive
 
     # source ~/code/dotfiles/shell_aliases
     # source ~/code/dotfiles/shell_funcs.fish
+    source ~/.config/fish/shell_funcs.fish
+    source ~/.config/fish/shell_aliases.fish
+    source ~/.config/fish/everquote.fish
 end

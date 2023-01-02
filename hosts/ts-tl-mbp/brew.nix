@@ -7,6 +7,7 @@
       "discord"
       "divvy"
       "firefox"
+      "gpg-suite"
       "jetbrains-toolbox"
       "karabiner-elements"
       "slack"

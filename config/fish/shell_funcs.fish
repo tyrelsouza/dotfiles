@@ -68,5 +68,3 @@ function lab
   jupyter lab
   deactivate
 end
-
-source ~/code/dotfiles/jobs/everquote.fish
