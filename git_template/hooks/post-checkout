@@ -1,4 +1,0 @@
-#!/bin/bash
-#if [ -e bin/update_dependencies.sh ]; then
-#    bin/update_dependencies.sh
-#fi

@@ -11,9 +11,9 @@
     };
 
     home.packages = with pkgs; [
+      bat
       ctags
       exa
-      bat
       fzf
       ripgrep
       wget
@@ -22,13 +22,17 @@
     programs.tmux = {
       enable = true;
     };
-    #home.file.".tmux".source = "../../tmux";
-    #home.file.".tmux.conf".source = "../../tmux.conf";
+    home.file = {
+      ".tmux.conf" = {
+        source = ../../home/tmux.conf;
+        recursive = true;
+      };
+    };
 
     programs.git = {
       enable = true;
       includes = [
-        { path = "~/code/tyrel.dev/dotfiles/gitconfig"; }
+        { path = "~/code/tyrel.dev/dotfiles/home/gitconfig"; }
       ];
       aliases = {
         ap = "add -p";
@@ -41,22 +45,10 @@
     programs.neovim = {
       enable = true;
     };
-    xdg.configFile = {
-      "nvim" = {
-        source = ../../config/nvim;
-        recursive = true;
-      };
-    };
-
     programs.fish = {
      enable = true;
     };
-    xdg.configFile = {
-      "fish" = {
-        source = ../../config/fish;
-        recursive = true;
-      };
-    };
+
 
 
     programs.htop = {
@@ -64,18 +56,25 @@
     };
     #xdg.configFile = {
     #  "htop" = {
-    #    source = ../../config/htop;
+    #    source = ../../home/config/htop;
     #    recursive = true;
     #  };
     #};
 
 
 
-
-    # Brew's XDG CONFIGS
+    # XDG CONFIGS
     xdg.configFile = {
+      "nvim" = {
+        source = ../../home/config/nvim;
+        recursive = true;
+      };
+      "fish" = {
+        source = ../../home/config/fish;
+        recursive = true;
+      };
       "karabiner" = {
-        source = ../../config/karabiner;
+        source = ../../home/config/karabiner;
         recursive = true;
       };
     };
