@@ -1,8 +1,4 @@
 if status is-interactive
-    if type -q nitch
-        nitch
-    end
-
     set -x EDITOR nvim
     set -x VISUAL nvim
     set fish_greeting

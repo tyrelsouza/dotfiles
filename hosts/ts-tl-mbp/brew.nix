@@ -11,6 +11,7 @@
       "jetbrains-toolbox"
       "karabiner-elements"
       "slack"
+      "tailscale"
       "thunderbird"
     ];
   };
