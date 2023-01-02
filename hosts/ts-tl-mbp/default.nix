@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   services.nix-daemon.enable = true;
   programs.zsh.enable = true;
@@ -11,38 +11,66 @@
     programs.home-manager.enable = true;
     home.stateVersion = "22.05";
 
+    home.sessionVariables = {
+      PAGER = "less -R";
+      EDITOR = "nvim";
+    };
+
     home.packages = with pkgs; [
-        (neovim.override {
-              vimAlias = true;
-        })
-	fish
-	htop
-	ripgrep
-	tmux
-	wget
+      fish
+      ctags
+      htop
+      ripgrep
+      wget
     ];
 
-    #home.file.".config/".source = "../../config/";
-    #home.file."bin".source = "../../bin";
-    #home.file.".gitconfig".source = "gitconfig";
-    #home.file.".gitignore".source = "../../gitignore";
-    #home.file.".hushlogin".source = "../../hushlogin";
-    #home.file.".pythonstartup.py".source = "../../pythonstartup.py";
-    #home.file.".shell_aliases".source = "../../shell_aliases";
-    #home.file.".shell_funcs".source = "../../shell_funcs";
-    #home.file.".shell_funcs.fish".source = "../../shell_funcs.fish";
-    #home.file.".tmux".source = "../../tmux";
-    #home.file.".tmux.conf".source = "../../tmux.conf";
+    programs.tmux = {
+      enable = true;
+    };
+    home.file.".tmux".source = "../../tmux";
+    home.file.".tmux.conf".source = "../../tmux.conf";
 
+    programs.git = {
+      enable = true;
+      includes = [
+        { path = "~/code/tyrel.dev/dotfiles/gitconfig"; }
+      ];
+      aliases = {
+        ap = "add -p";
+      };
+      extraConfig = {
+        pull.ff = "only";
+      };
+    };
 
-  };
+    programs.neovim = {
+      enable = true;
+    };
+    xdg.configFile = {
+      "nvim" = {
+        source = ../../config/nvim;
+        recursive = true;
+      };
+    };
+
+      #home.file."bin".source = "../../bin";
+      #home.file.".gitconfig".source = "gitconfig";
+      #home.file.".gitignore".source = "../../gitignore";
+      #home.file.".hushlogin".source = "../../hushlogin";
+      #home.file.".pythonstartup.py".source = "../../pythonstartup.py";
+      #home.file.".shell_aliases".source = "../../shell_aliases";
+      #home.file.".shell_funcs".source = "../../shell_funcs";
+      #home.file.".shell_funcs.fish".source = "../../shell_funcs.fish";
+
+  }; # -- HomeManager
+ 
   homebrew = {
     enable = true;
     casks = [
-	"alfred"
-	"discord"
-	"slack"
-	"karabiner-elements"
+    "alfred"
+    "discord"
+    "slack"
+    "karabiner-elements"
     ];
   };
 
