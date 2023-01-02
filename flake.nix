@@ -22,7 +22,13 @@
     };
     darwinConfigurations."ts-tl-mbp" = darwin.lib.darwinSystem {
       system = "x86_64-darwin";
-      modules = [ home-manager.darwinModules.home-manager ./hosts/ts-tl-mbp/default.nix ];
+      modules = [
+  	    home-manager.darwinModules.home-manager
+	      ./hosts/ts-tl-mbp/default.nix
+	      ./hosts/ts-tl-mbp/home-manager.nix
+	      ./hosts/ts-tl-mbp/brew.nix
+	      ./hosts/ts-tl-mbp/fonts.nix
+      ];
     };
   };
 
