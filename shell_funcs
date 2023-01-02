@@ -55,6 +55,3 @@ function lab () {
   jupyter lab
   deactivate
 }
-
-# source ~/code/dotfiles/jobs/tidelift.sh
-source ~/code/dotfiles/jobs/everquote.sh
