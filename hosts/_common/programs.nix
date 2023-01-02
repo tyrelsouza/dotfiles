@@ -23,9 +23,10 @@
 
     programs.neovim = {
       enable = true;
-    };
-    programs.fish = {
-     enable = true;
+      plugins = with pkgs.vimPlugins; [
+        # Inject tree-sitters, since they're annoying to maintain with sideloading
+        (nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))
+      ];
     };
 
 
