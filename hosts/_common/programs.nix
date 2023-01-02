@@ -29,6 +29,10 @@
       ];
     };
 
+    programs.fish = {
+      enable = true;
+    };
+
 
     programs.htop = {
       enable = true;
