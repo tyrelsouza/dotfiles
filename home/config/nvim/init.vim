@@ -26,7 +26,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'thoughtbot/vim-rspec'
   Plug 'voldikss/vim-floaterm'
   Plug 'fatih/vim-go'
-  Plug 'folke/which-key.nvim'
   Plug 'whatyouhide/vim-gotham'
   Plug 'nanotech/jellybeans.vim'
   Plug 'sickill/vim-monokai'
@@ -37,13 +36,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'gf3/peg.vim'
 call plug#end()
 
-lua << EOF
-  require("which-key").setup {
-  }
-EOF
 
 map <C-o> :NERDTreeToggle<CR>
-map <Leader>v :WhichKey<CR>
 
 
 set tabstop=2
@@ -55,6 +49,7 @@ set autoindent
 set preserveindent
 set copyindent
 set mouse=
+set shell=~/.nix-profile/bin/fish
 
 " Set Colors
 if (has("termguicolors"))
@@ -151,7 +146,7 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
 
     -- list of language that will be disabled
-    disable = {"vim", "c", "rust"},
+    disable = {},
 
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
