@@ -1,2 +1,0 @@
-#!/bin/bash
-emacsclient --create-frame --alternate-editor="" 
