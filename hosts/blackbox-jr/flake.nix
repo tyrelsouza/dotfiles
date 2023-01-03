@@ -15,9 +15,10 @@
       homeConfigurations = {
         "tyrel" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
+
           modules = [
-            ../hosts/blackbox-jr/default.nix
-            ../hosts/blackbox-jr/home-manager.nix
+            ./default.nix
+            ./home-manager.nix
             {
             home = {
               homeDirectory = "/home/tyrel";
@@ -26,7 +27,10 @@
             };
           }
         ];
+
+
       };
     };
   };
 }
+

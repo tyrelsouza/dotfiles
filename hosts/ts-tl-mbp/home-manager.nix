@@ -5,6 +5,7 @@
   home-manager.users.tyrel = { pkgs, ... }: {
     # Common Imports
     imports = [
+        ./home.nix
         ../_common/home.nix
         ../_common/programs.nix
         ../_common/xdg.nix

@@ -6,6 +6,7 @@
       EDITOR = "nvim";
     };
     home.packages = with pkgs; [
+      # Terminals
       bat
       ctags
       exa
@@ -15,6 +16,7 @@
       tree-sitter
       silver-searcher
       wget
+
     ];
 
     home.file = {
