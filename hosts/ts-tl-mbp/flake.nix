@@ -18,7 +18,7 @@
 	      ./default.nix
 	      ./home-manager.nix
 	      ./brew.nix
-	      ../hosts/_common/fonts.nix
+	      ../_common/fonts.nix
       ];
     };
   };
