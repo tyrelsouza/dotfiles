@@ -23,7 +23,7 @@ clean:
 	home-manager expire-generations "-7 days"
 
 rebuild-macos: git-add
-	./result/sw/bin/darwin-rebuild switch --flake _macos
+	./result/sw/bin/darwin-rebuild switch --flake _macos -v
 
 rebuild-ubuntu: git-add
 	NIX_PATH=nixpkgs=/nix/var/nix/profiles/per-user/tyrel/channels/nixpkgs:/nix/var/nix/profiles/per-user/tyrel/channels

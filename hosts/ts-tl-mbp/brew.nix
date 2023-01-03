@@ -4,6 +4,10 @@
     enable = true;
     casks = [
       "alfred"
+      "affinity-photo"
+      "affinity-designer"
+      "affinity-publisher"
+      "commander-one"
       "discord"
       "divvy"
       "firefox"
@@ -11,8 +15,10 @@
       "jetbrains-toolbox"
       "karabiner-elements"
       "slack"
+      "spotify"
       "steam"
       "tailscale"
+      "telegram-desktop"
       "thunderbird"
     ];
   };
