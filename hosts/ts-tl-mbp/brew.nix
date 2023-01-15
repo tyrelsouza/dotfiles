@@ -14,6 +14,7 @@
       "gpg-suite"
       "jetbrains-toolbox"
       "karabiner-elements"
+      "meetingbar"
       "slack"
       "spotify"
       "steam"
