@@ -15,12 +15,14 @@ setup:
 setup-ubuntu:
 	NIX_PATH={{NIXPATH}} nix-channel --add https://nixos.org/channels/nixos-22.11 nixos
 	NIX_PATH={{NIXPATH}} nix-channel --add https://github.com/nix-community/home-manager/archive/release-22.11.tar.gz home-manager 
+	NIX_PATH={{NIXPATH}} nix-channel --add https://channels.nixos.org/nixos-22.11 nixpkgs
 	NIX_PATH={{NIXPATH}} nix-channel --update
 	NIX_PATH={{NIXPATH}} nix-shell '<home-manager>' -A install
 
 setup-debian:
 	NIX_PATH={{NIXPATH}} nix-channel --add https://nixos.org/channels/nixos-22.11 nixos
 	NIX_PATH={{NIXPATH}} nix-channel --add https://github.com/nix-community/home-manager/archive/release-22.11.tar.gz home-manager 
+	NIX_PATH={{NIXPATH}} nix-channel --add https://channels.nixos.org/nixos-22.11 nixpkgs
 	NIX_PATH={{NIXPATH}} nix-channel --update
 	NIX_PATH={{NIXPATH}} nix-shell '<home-manager>' -A install
 
