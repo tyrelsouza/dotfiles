@@ -1,7 +1,11 @@
 #!/usr/bin/env -S just --justfile
 
 # Naive check if /Users or /home for home.
-OS := if "${HOME}" =~ '/U.*' { "macos" } else { "ubuntu" }
+OS := if "${HOME}" =~ '/U.*' {
+		"macos"
+	} else {
+		if `cat /etc/issue | grep -i debian` =~ "Deb.*" { "debian" } else { "ubuntu" }
+	}
 HOSTNAME := `hostname| sed 's/.local//'`
 NIXPATH := "nixpkgs=/nix/var/nix/profiles/per-user/tyrel/channels/nixpkgs:/nix/var/nix/profiles/per-user/tyrel/channels"
 
@@ -9,6 +13,12 @@ setup:
 	just setup-{{OS}}
 
 setup-ubuntu:
+	NIX_PATH={{NIXPATH}} nix-channel --add https://nixos.org/channels/nixos-22.11 nixos
+	NIX_PATH={{NIXPATH}} nix-channel --add https://github.com/nix-community/home-manager/archive/release-22.11.tar.gz home-manager 
+	NIX_PATH={{NIXPATH}} nix-channel --update
+	NIX_PATH={{NIXPATH}} nix-shell '<home-manager>' -A install
+
+setup-debian:
 	NIX_PATH={{NIXPATH}} nix-channel --add https://nixos.org/channels/nixos-22.11 nixos
 	NIX_PATH={{NIXPATH}} nix-channel --add https://github.com/nix-community/home-manager/archive/release-22.11.tar.gz home-manager 
 	NIX_PATH={{NIXPATH}} nix-channel --update
