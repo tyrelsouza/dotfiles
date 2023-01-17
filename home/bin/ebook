@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+
+fname="$1"
+scp -rp "$1" "tyrel-dell:/kubernetes-volumes/calibre/incoming/$fname";

@@ -22,7 +22,12 @@
     home.file = {
       ".tmux.conf" = {
         source = ../../home/tmux.conf;
-        recursive = true;
+      };
+      ".gitconfig" = {
+        source = ../../home/gitconfig;
+      };
+      ".gitignore" = {
+        source = ../../home/gitignore;
       };
       "bin" = {
         source = ../../home/bin;

@@ -17,3 +17,5 @@ venv/
 
 production_healththankyou_events.json
 staging_healththankyou_events.json
+
+shell.nix

@@ -1,20 +1,20 @@
 [core]
-    excludesfile = /Users/tyrel/.gitignore_global
-	editor = nvim
-	symlinks = false
-	pager = less -F -X
+    excludesfile = ~/.gitignore_global
+	  editor = nvim
+	  symlinks = false
+	  pager = less -F -X
 [user]
     email = tyrelsouza@gmail.com
     name = Tyrel Souza
     signingkey = F3614B02ACBE438E
 [commit]
-    #gpgsign = true
+    gpgsign = true
     template = /Users/tyrel/.stCommitMsg
 [color]
     ui = auto # covers diff = true, status = auto, branch = auto
     interactive = auto
 [push]
-	default = current
+	  default = current
 [fetch]
     prune = true
 [format]
