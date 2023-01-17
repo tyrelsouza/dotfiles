@@ -45,6 +45,9 @@ clean:
 	nix-collect-garbage --delete-older-than 7d
 	home-manager expire-generations "-7 days"
 
+vimpacker:
+	git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
 rebuild: git-add clean
   just rebuild-{{OS}}
 
@@ -55,6 +58,6 @@ rebuild-ubuntu:
   NIX_PATH={{NIXPATH}} nix run ./hosts/{{HOSTNAME}} switch -vv
   NIX_PATH={{NIXPATH}} home-manager switch --flake ./hosts/{{HOSTNAME}}
 
-
-vimpacker:
-	git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+rebuild-debian:
+  NIX_PATH={{NIXPATH}} nix run ./hosts/{{HOSTNAME}} switch -vv
+  NIX_PATH={{NIXPATH}} home-manager switch --flake ./hosts/{{HOSTNAME}}
