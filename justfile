@@ -4,7 +4,7 @@
 OS := if "${HOME}" =~ '/U.*' {
 		"macos"
 	} else {
-		if `cat /etc/issue` =~ "Deb.*" { "debian" } else { "ubuntu" }
+		if `cat /etc/issue 2>/dev/null || true` =~ "Deb.*" { "debian" } else { "ubuntu" }
 	}
 HOSTNAME := `hostname| sed 's/.local//'`
 NIXPATH := "nixpkgs=/nix/var/nix/profiles/per-user/tyrel/channels/nixpkgs:/nix/var/nix/profiles/per-user/tyrel/channels"
@@ -48,7 +48,7 @@ clean:
 vimpacker:
 	git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-rebuild: git-add clean
+rebuild: git-add
   just rebuild-{{OS}}
 
 rebuild-macos:
@@ -57,7 +57,9 @@ rebuild-macos:
 rebuild-ubuntu:
   NIX_PATH={{NIXPATH}} nix run ./hosts/{{HOSTNAME}} switch -vv
   NIX_PATH={{NIXPATH}} home-manager switch --flake ./hosts/{{HOSTNAME}}
+  just clean
 
 rebuild-debian:
   NIX_PATH={{NIXPATH}} nix run ./hosts/{{HOSTNAME}} switch -vv
   NIX_PATH={{NIXPATH}} home-manager switch --flake ./hosts/{{HOSTNAME}}
+  just clean
