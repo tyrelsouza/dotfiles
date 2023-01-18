@@ -4,7 +4,7 @@
 OS := if "${HOME}" =~ '/U.*' {
 		"macos"
 	} else {
-		if `cat /etc/issue | grep -i debian` =~ "Deb.*" { "debian" } else { "ubuntu" }
+		if `cat /etc/issue` =~ "Deb.*" { "debian" } else { "ubuntu" }
 	}
 HOSTNAME := `hostname| sed 's/.local//'`
 NIXPATH := "nixpkgs=/nix/var/nix/profiles/per-user/tyrel/channels/nixpkgs:/nix/var/nix/profiles/per-user/tyrel/channels"
