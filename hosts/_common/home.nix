@@ -12,6 +12,8 @@
       exa
       fzf
       fd
+      ncdu
+      p7zip
       ripgrep
       tree-sitter
       silver-searcher
