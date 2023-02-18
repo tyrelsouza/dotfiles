@@ -26,6 +26,10 @@ setup-debian:
 	NIX_PATH={{NIXPATH}} nix-channel --update
 	NIX_PATH={{NIXPATH}} nix-shell '<home-manager>' -A install
 
+experimental:
+  mkdir -p ~/.config/nix
+  echo "extra-experimental-features = flakes nix-command" ~/.config/nix/nix.conf
+
 git-add:
 	git add .
 
