@@ -18,7 +18,8 @@
       tree-sitter
       silver-searcher
       wget
-
+      maestral
+      maestral-gui
     ];
 
     home.file = {
