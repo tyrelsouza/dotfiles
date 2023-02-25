@@ -45,7 +45,7 @@
     p = push
     recent = "!git for-each-ref --format=\"%(committerdate:relative) | %(refname)\" --sort=-committerdate refs/heads | sed '/main/d' | head -n 15" # get the most 10 recent branches worked on
     scrum = log --since='1 day ago' --author='Tyrel Souza' --oneline
-    st = status # alias like `hg st`, because I like st, shorter is nice!
+    st = "!git log -n 1 && git status" # alias like `hg st`, because I like st, shorter is nice!
     tabs = "!git diff --color | sed 's/\t/⌑/g'" # show tabs with ⌑ replacing tabs
     v=describe --tags --match 'v*' # show the current version tag
 
