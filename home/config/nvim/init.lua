@@ -152,12 +152,12 @@ return require('packer').startup(function(use)
     nmap <Leader><F6> <cmd>call vimspector#Launch()<cr>
     nmap <Leader><F7> <cmd>call vimspector#StepOver()<cr>
     nmap <Leader><F4> <cmd>call vimspector#Reset()<cr>
-    nmap <Leader><F11> <cmd>call vimspector#StepOver()<cr>")
-    nmap <Leader><F12> <cmd>call vimspector#StepOut()<cr>")
-    nmap <Leader><F10> <cmd>call vimspector#StepInto()<cr>")
-    map('n', "Db", ":call vimspector#ToggleBreakpoint()<cr>")
-    map('n', "Dw", ":call vimspector#AddWatch()<cr>")
-    map('n', "De", ":call vimspector#Evaluate()<cr>")
+    nmap <Leader><F11> <cmd>call vimspector#StepOver()<cr>
+    nmap <Leader><F12> <cmd>call vimspector#StepOut()<cr>
+    nmap <Leader><F10> <cmd>call vimspector#StepInto()<cr>
+    nmap <Leader>Db <cmd>:call vimspector#ToggleBreakpoint()<cr>
+    nmap <Leader>Dw <cmd>:call vimspector#AddWatch()<cr>
+    nmap <Leader>De <cmd>:call vimspector#Evaluate()<cr>
   ]])
 
   -- OPTS
