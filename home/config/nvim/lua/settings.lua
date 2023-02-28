@@ -40,7 +40,7 @@ vim.opt.undofile = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-vim.cmd 'colorscheme Atelier_SulphurpoolDark'
+vim.cmd 'colorscheme jellybeans'
 vim.g.floaterm_keymap_toggle = '<F9>'
 vim.g.floaterm_width = 0.9
 vim.g.floaterm_height = 0.9
