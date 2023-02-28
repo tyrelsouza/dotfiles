@@ -4,6 +4,8 @@
     home.sessionVariables = {
     };
     home.packages = with pkgs; [
+      maestral
+      maestral-gui
     ];
 
     home.file = {
