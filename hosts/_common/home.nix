@@ -12,7 +12,6 @@
       exa
       fzf
       fd
-      ncdu
       nodejs
       p7zip
       ripgrep
