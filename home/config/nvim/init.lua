@@ -145,4 +145,43 @@ return require('packer').startup(function(use)
     }
   }
   
+
+  -- KEYS
+  -- Vimspector
+  vim.cmd([[
+    nmap <Leader><F6> <cmd>call vimspector#Launch()<cr>
+    nmap <Leader><F7> <cmd>call vimspector#StepOver()<cr>
+    nmap <Leader><F4> <cmd>call vimspector#Reset()<cr>
+    nmap <Leader><F11> <cmd>call vimspector#StepOver()<cr>")
+    nmap <Leader><F12> <cmd>call vimspector#StepOut()<cr>")
+    nmap <Leader><F10> <cmd>call vimspector#StepInto()<cr>")
+    map('n', "Db", ":call vimspector#ToggleBreakpoint()<cr>")
+    map('n', "Dw", ":call vimspector#AddWatch()<cr>")
+    map('n', "De", ":call vimspector#Evaluate()<cr>")
+  ]])
+
+  -- OPTS
+  vim.opt.completeopt = {'menuone', 'noselect', 'noinsert'}
+  vim.opt.shortmess = vim.opt.shortmess + { c = true}
+  vim.api.nvim_set_option('updatetime', 300) 
+  
+  -- Fixed column for diagnostics to appear
+  -- Show autodiagnostic popup on cursor hover_range
+  -- Goto previous / next diagnostic warning / error 
+  -- Show inlay_hints more frequently 
+  vim.cmd([[
+    set signcolumn=yes
+    autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
+  ]])
+  
+  
+  
+  vim.cmd([[
+  let g:vimspector_sidebar_width = 85
+  let g:vimspector_bottombar_height = 15
+  let g:vimspector_terminal_maxwidth = 70
+  ]])
+
+
+
 end)

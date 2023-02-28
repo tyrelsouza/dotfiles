@@ -66,4 +66,7 @@ return function(use)
     config = function () require('telescope').setup{ file_ignore_patterns = {"node_modules","./venv/"} } end
   })
 
+
+  use({'puremourning/vimspector'})
+
 end
