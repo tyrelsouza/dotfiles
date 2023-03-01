@@ -1,5 +1,7 @@
 require("settings")
 
+vim.g.python3_host_prog = '/opt/nvimpython/.nvim.pythonenv/bin/python3'
+
 -- Install Packer automatically:
 local ensure_packer = function()
   local fn = vim.fn
