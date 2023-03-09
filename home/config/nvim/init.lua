@@ -125,28 +125,21 @@ return require('packer').startup(function(use)
     },
   })
 
+	require("nvim-treesitter.configs").setup({
+		highlight = { enable = false, disable = { "lua" } },
+		indent = { enable = true },
+		refactor = { highlight_definitions = { enable = true } },
+		incremental_selection = { enable = true },
+		matchup = { enable = true },
+		textsubjects = {
+			enable = true,
+			prev_selection = ",",
+			keymaps = {
+				["."] = "textsubjects-smart",
+			},
+		},
+	})
 
-  require('nvim-treesitter.configs').setup {
-    ensure_installed = {
-      "bash", "c", "c_sharp", "cmake", "cpp", "css", "diff", "dockerfile", "fish", "git_rebase",
-      "gitattributes", "gitcommit", "gitignore", "go", "gomod", "html", "htmldjango", "http", "ini",
-      "java", "javascript", "jq", "jsdoc", "json", "json5", "jsonc", "llvm", "lua", "m68k", "make", 
-      "markdown", "markdown_inline", "nix", "python", "rst", "ruby", "rust", "scss", "sql", "terraform",
-      "toml", "tsx", "typescript", "vim", "vue", "yaml"
-    },
-    auto_install = true,
-    highlight = {
-      enable = true,
-      additional_vim_regex_highlighting=false,
-    },
-    ident = { enable = true }, 
-    rainbow = {
-      enable = true,
-      extended_mode = true,
-      max_file_lines = nil,
-    }
-  }
-  
 
   -- KEYS
   -- Vimspector
