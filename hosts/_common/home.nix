@@ -9,6 +9,7 @@
       # Terminals
       bat
       ctags
+      dosbox
       exa
       fzf
       fd
@@ -35,6 +36,9 @@
         recursive = true;
 
       };
+    };
+    nixpkgs.config = {
+      allowUnfree = true;
     };
 
 }

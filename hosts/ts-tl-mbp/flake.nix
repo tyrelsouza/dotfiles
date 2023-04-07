@@ -21,6 +21,9 @@
 	      ../_common/fonts.nix
       ];
     };
+    nixpkgs.config = {
+      allowUnfree = true;
+    };
   };
 
 }

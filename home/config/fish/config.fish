@@ -11,6 +11,7 @@ if status is-interactive
     source ~/.config/fish/shell_funcs.fish
     source ~/.config/fish/shell_aliases.fish
     source ~/.config/fish/everquote.fish
-    source "$HOME/.cargo/env"
 
+
+    set PATH $PATH ~/.cargo/bin
 end
