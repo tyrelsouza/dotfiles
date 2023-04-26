@@ -10,12 +10,12 @@
 upload() {
     # Given a filepath and a target name, upload the screenshot
     chmod +r "$1"
-    scp "$1" "tyrelsouza.com:/www/tyrel.pw/s/$2"
+    scp "$1" "tyrel.dev:/www/tyrel.bike/s/$2"
 }
 
 url() {
     # Given a target name, echo the expected URL of the uploaded screenshot
-    echo "https://tyrel.pw/s/$1"
+    echo "https://tyrel.bike/s/$1"
 }
 
 ### (End)
