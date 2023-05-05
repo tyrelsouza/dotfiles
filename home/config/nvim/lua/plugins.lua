@@ -52,6 +52,16 @@ return function(use)
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
+  use({'arkav/lualine-lsp-progress'})
+  require('lualine').setup {
+    options = { theme = 'palenight' },
+    sections = {
+	  	lualine_c = {
+			  'lsp_progress'
+		  }
+	  }
+
+  }
   use({'voldikss/vim-floaterm'})
   use({'fatih/vim-go'})
   use({'whatyouhide/vim-gotham'})

@@ -18,6 +18,9 @@ vim.opt.lazyredraw = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
+vim.opt.cursorline = true
+vim.opt.cursorcolumn = true
+
 -- Global settings
 vim.opt.autochdir = true -- Keep vim's directory context same as the current buffer
 vim.opt.listchars = "tab:> ,trail:.,extends:$,nbsp:_"
