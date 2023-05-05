@@ -16,6 +16,8 @@ return function(use)
   use({"williamboman/mason.nvim"})
   use({'williamboman/mason-lspconfig.nvim'})
   use({'neovim/nvim-lspconfig'})
+  require'lspconfig'.gopls.setup{ "gopls" }
+
   use({'simrat39/rust-tools.nvim'})
   use({'hrsh7th/nvim-cmp'})
   -- LSP completion source:
