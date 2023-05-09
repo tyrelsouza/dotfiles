@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e
 
-scp -rp "$1" tyrel-dell:"'/kubernetes-volumes/calibre/incoming/$1'";
+scp -rp "$1" tyrel-dell:"/kubernetes-volumes/calibre/incoming/$1"
