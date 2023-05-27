@@ -14,7 +14,6 @@
       fzf
       fd
       go
-      ncdu
       nodejs
       p7zip
       ripgrep
