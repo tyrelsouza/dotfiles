@@ -83,15 +83,18 @@ return function(use)
 
   use({
     'nvim-telescope/telescope.nvim',
+    commit="c1a2af0",
     config = function () require('telescope').setup{ file_ignore_patterns = {"node_modules","./venv/"} } end
   })
+  use({'nvim-telescope/telescope-project.nvim'})
+  -- require'telescope'.load_extension('project')
+
 
 
   use({'puremourning/vimspector'})
  	use({'nvim-treesitter/nvim-treesitter-refactor'})
 	use({'RRethy/nvim-treesitter-textsubjects'})
 
-  use({'airblade/vim-rooter'})
-
+  -- use({'airblade/vim-rooter'})
 
 end

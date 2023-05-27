@@ -110,6 +110,7 @@ vim.api.nvim_set_keymap("n", "<Leader>bq",":bp <BAR> bd #<CR>", {silent=true})
 vim.api.nvim_set_keymap("n", "<Leader>ff", ":Telescope find_files<cr>", {silent=true})
 vim.api.nvim_set_keymap("n", "<Leader>fg", ":Telescope live_grep<cr>", {silent=true})
 vim.api.nvim_set_keymap("n", "<Leader>fb", ":Telescope buffers<cr>", {silent=true})
+vim.api.nvim_set_keymap("n", "<Leader>fp", ":Telescope projects<cr>", {silent=true})
 vim.api.nvim_set_keymap("n", "<Leader>fa", ":Ag<cr>", {silent=true})
 
 vim.api.nvim_set_keymap("n", "<leader>gb",":.GBrowse<CR>", {silent=true})
