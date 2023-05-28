@@ -120,6 +120,7 @@ vim.api.nvim_set_keymap("n", "<C-K>", ":bnext<CR>", {silent = true})
 vim.api.nvim_set_keymap("n", "<C-o>", ":NERDTreeToggle<CR>", {silent = true})
 
 vim.api.nvim_set_keymap("n", "<F1>", ":set invnumber invrelativenumber<CR>", {silent = true })
+vim.api.nvim_set_keymap("i", "<F1>", "<Esc>", {silent = true })
 vim.api.nvim_set_keymap("n", "<F2>",":SearchSession<CR>", {silent = true })
 vim.api.nvim_set_keymap("n", "<F8>", ":Tagbar<CR>", {silent = true })
 
