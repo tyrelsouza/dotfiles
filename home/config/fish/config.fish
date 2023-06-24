@@ -10,7 +10,6 @@ if status is-interactive
 
     source ~/.config/fish/shell_funcs.fish
     source ~/.config/fish/shell_aliases.fish
-    source ~/.config/fish/everquote.fish
 
 
     set PATH $PATH ~/.cargo/bin

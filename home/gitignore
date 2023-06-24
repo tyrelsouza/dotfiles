@@ -2,20 +2,16 @@
 *.DS_Store
 .tags
 .tags_sorted*
+tags
 *.sw[nop]
 .bundle
 .env
-tags
 .ruby-version
-release_package.sh
 .vs/
 .python-version
 .envrc
 __pycache__/
 Session.vim
 venv/
-
-production_healththankyou_events.json
-staging_healththankyou_events.json
 
 shell.nix

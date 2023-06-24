@@ -48,6 +48,9 @@ vim.g.floaterm_keymap_toggle = '<F9>'
 vim.g.floaterm_width = 0.9
 vim.g.floaterm_height = 0.9
 
+vim.g.rustfmt_autosave = 1
+vim.g.rust_use_custom_ctags_defs = 1
+
 
 vim.g.tagbar_autofocus=1
 

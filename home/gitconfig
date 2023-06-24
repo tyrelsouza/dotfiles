@@ -64,6 +64,7 @@
     newHighlight = green bold 22
 [init]
     templatedir = ~/.git_template
+    defaultBranch = main
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 

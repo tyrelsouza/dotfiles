@@ -94,7 +94,6 @@ return function(use)
   use({'puremourning/vimspector'})
  	use({'nvim-treesitter/nvim-treesitter-refactor'})
 	use({'RRethy/nvim-treesitter-textsubjects'})
-
   -- use({'airblade/vim-rooter'})
 
   -- Debugging
