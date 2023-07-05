@@ -41,6 +41,9 @@ update-os:
 update-neovim:
 	nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
+pi:
+	nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerInstall'
+
 sync:
 	sudo nix-channel --update
 	nix-channel --update
