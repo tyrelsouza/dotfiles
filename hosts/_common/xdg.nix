@@ -10,8 +10,8 @@
           recursive = true;
       };
       "nvim/legacy.vim".source = config.lib.file.mkOutOfStoreSymlink ../../home/config/nvim/legacy.vim;
-      "fish" = {
-        source = ../../home/config/fish;
+      "htop" = {
+        source = ../../home/config/htop;
         recursive = true;
       };
     };

@@ -126,7 +126,7 @@ return require('packer').startup(function(use)
   })
 
 	require("nvim-treesitter.configs").setup({
-		highlight = { enable = false, disable = { "lua" } },
+		highlight = { enable = true, disable = { "lua" } },
 		indent = { enable = true },
 		refactor = { highlight_definitions = { enable = true } },
 		incremental_selection = { enable = true },

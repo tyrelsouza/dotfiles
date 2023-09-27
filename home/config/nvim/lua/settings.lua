@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.opt.shell = "/usr/local/bin/fish"
+vim.opt.shell = "~/.nix-profile/bin/zsh"
 
 vim.opt.history = 1000
 vim.opt.termguicolors = true
@@ -126,5 +126,7 @@ vim.api.nvim_set_keymap("n", "<F1>", ":set invnumber invrelativenumber<CR>", {si
 vim.api.nvim_set_keymap("i", "<F1>", "<Esc>", {silent = true })
 vim.api.nvim_set_keymap("n", "<F2>",":SearchSession<CR>", {silent = true })
 vim.api.nvim_set_keymap("n", "<F8>", ":Tagbar<CR>", {silent = true })
+
+
 
 

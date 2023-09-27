@@ -14,7 +14,6 @@
       fzf
       fd
       go
-      nodejs
       p7zip
       ripgrep
       tree-sitter

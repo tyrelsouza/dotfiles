@@ -6,3 +6,4 @@ alias gp='git push -u'
 alias ls="exa -lhFgxUm --git --time-style long-iso --group-directories-first"
 alias vimini="vim ~/.config/nvim/init.vim"
 alias vim=nvim
+alias tree=tree -I 'node_modules|venv'

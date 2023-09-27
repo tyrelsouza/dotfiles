@@ -5,7 +5,6 @@ tags*
 vim/view
 .netrwhist
 chromedriver
-config/fish/fishd.*
 emacs.d/elpa
 midweek*
 watercooler*

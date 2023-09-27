@@ -5,7 +5,7 @@ let mapleader = " "
 set autoindentz
 set preserveindent
 set copyindent
-set shell=~/.nix-profile/bin/fish
+set shell=~/.nix-profile/bin/zsh
 
 " Set Colors
 if (has("termguicolors"))
@@ -83,3 +83,15 @@ nmap <silent> <leader>mp :Mypy<CR>
 " Rust tags
 autocmd BufRead *.rs :setlocal tags=./rusty-tags.vi;/
 autocmd BufWritePost *.rs :silent! exec "!rusty-tags vi --quiet --start-dir=" . expand('%:p:h') . "&" | redraw!
+
+
+highlight Cursor guibg=#5f87af ctermbg=67
+highlight iCursor guibg=#ffffaf ctermbg=229
+highlight rCursor guibg=#d70000 ctermbg=124
+
+set guicursor=n-v-c:block-Cursor/lCursor
+            \,i-ci-ve:ver100-iCursor
+            \,r-cr:block-rCursor
+            \,o:hor50-Cursor/lCursor
+            \,sm:block-iCursor
+            \,a:blinkwait1000-blinkon500-blinkoff250

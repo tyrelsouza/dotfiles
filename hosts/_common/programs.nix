@@ -39,33 +39,6 @@
       '';
     };
 
-    programs.fish = {
-      enable = true;
-      plugins = with pkgs.fishPlugins; [
-          {
-            name = "fish-ssh-agent";
-            src = pkgs.fetchFromGitHub {
-              owner = "danhper";
-              repo = "fish-ssh-agent";
-	      rev = "fd70a2afdd03caf9bf609746bf6b993b9e83be57";
-	      sha256 = "e94Sd1GSUAxwLVVo5yR6msq0jZLOn2m+JZJ6mvwQdLs=";
-            };
-          }
-
-          {
-            name = "nix-env.fish";
-            src = pkgs.fetchFromGitHub {
-              owner = "lilyball";
-              repo = "nix-env.fish";
-	      rev = "7b65bd228429e852c8fdfa07601159130a818cfa";
-	      sha256 = "RG/0rfhgq6aEKNZ0XwIqOaZ6K5S4+/Y5EEMnIdtfPhk=";
-            };
-          }
-      ];
-    };
-    
-
-
     programs.htop = {
       enable = true;
     };

@@ -39,8 +39,6 @@
     logtree=  "log --graph --oneline --decorate --all" # show a tree with branches merging
     noop="!git commit --allow-empty -m 'no op'"
     ob = "!$EDITOR $(git diff --name-only origin/main)" # Open all files in editor that differ between origin/main and staged/unstaged
-    amanda = "!git commit --amend --author='Amanda P McDermott <amanda@tidelift.com>'"
-    oscar = "!git commit --amend --author='Oscar Spencer <oscar@tidelift.com>'"
     od = "!$EDITOR $(git diff --name-only HEAD)" # Open all changed files differ from current HEAD
     p = push
     recent = "!git for-each-ref --format=\"%(committerdate:relative) | %(refname)\" --sort=-committerdate refs/heads | sed '/main/d' | head -n 15" # get the most 10 recent branches worked on

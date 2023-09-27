@@ -46,12 +46,4 @@ function new_dock_space (){
     defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'; killall Dock
 }
 
-# Jupyter lab!
-function lab () {
-  source ~/JUPYTER/bin/activate
-  cd ~/scratch
-  powerpip
-  pip install -r jupyter_requirements.txt
-  jupyter lab
-  deactivate
-}
+
