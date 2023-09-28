@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.opt.shell = "~/.nix-profile/bin/zsh"
+vim.opt.shell = "zsh"
 
 vim.opt.history = 1000
 vim.opt.termguicolors = true
@@ -47,13 +47,16 @@ vim.cmd 'colorscheme jellybeans'
 vim.g.floaterm_keymap_toggle = '<F9>'
 vim.g.floaterm_width = 0.9
 vim.g.floaterm_height = 0.9
+vim.g.floaterm_shell = "~/.nix-profile/bin/zsh"
 
 vim.g.rustfmt_autosave = 1
 vim.g.rust_use_custom_ctags_defs = 1
 
 
 vim.g.tagbar_autofocus=1
-
+-- vim.g.UltiSnipsExpandTrigger="<C-Tab>"
+-- vim.g.UltiSnipsJumpForwardTrigger="<C-b>"
+-- vim.g.UltiSnipsJumpBackwardTrigger="<C-z>"
 
 
 -- Highlight yank

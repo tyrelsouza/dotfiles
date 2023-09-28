@@ -12,6 +12,8 @@ return function(use)
   -- require("nvim-treesitter.configs").setup({
   --   parser_install_dir = parser_install_dir,
   -- })
+  use({"SirVer/ultisnips"})
+  use({"honza/vim-snippets"})
   
   use({"williamboman/mason.nvim"})
   use({'williamboman/mason-lspconfig.nvim'})

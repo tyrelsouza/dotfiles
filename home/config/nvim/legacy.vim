@@ -5,7 +5,7 @@ let mapleader = " "
 set autoindentz
 set preserveindent
 set copyindent
-set shell=~/.nix-profile/bin/zsh
+set shell=zsh
 
 " Set Colors
 if (has("termguicolors"))
