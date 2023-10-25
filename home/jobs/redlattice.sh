@@ -8,3 +8,9 @@ function rl() {
     done
 }
 
+
+function gsub() {
+  git submodule update --init --recursive --remote
+}
+
+alias portalshell="docker-compose -f docker-compose.yml exec portald bash"

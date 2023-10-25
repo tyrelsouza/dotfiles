@@ -141,8 +141,8 @@ return require('packer').startup(function(use)
 	})
 
 
-  -- KEYS
   -- Vimspector
+  -- KEYS
   vim.cmd([[
     nmap <Leader><F6> <cmd>call vimspector#Launch()<cr>
     nmap <Leader><F7> <cmd>call vimspector#StepOver()<cr>
@@ -154,12 +154,10 @@ return require('packer').startup(function(use)
     nmap <Leader>Dw <cmd>:call vimspector#AddWatch()<cr>
     nmap <Leader>De <cmd>:call vimspector#Evaluate()<cr>
   ]])
-
   -- OPTS
   vim.opt.completeopt = {'menuone', 'noselect', 'noinsert'}
   vim.opt.shortmess = vim.opt.shortmess + { c = true}
   vim.api.nvim_set_option('updatetime', 300) 
-  
   -- Fixed column for diagnostics to appear
   -- Show autodiagnostic popup on cursor hover_range
   -- Goto previous / next diagnostic warning / error 
@@ -168,9 +166,6 @@ return require('packer').startup(function(use)
     set signcolumn=yes
     autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
   ]])
-  
-  
-  
   vim.cmd([[
   let g:vimspector_sidebar_width = 85
   let g:vimspector_bottombar_height = 15

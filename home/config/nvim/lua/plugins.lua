@@ -1,40 +1,34 @@
 vim.cmd([[autocmd BufWritePost plugins.lua PackerCompile]])
 
 return function(use)
-  use({"SirVer/ultisnips"})
-  use({"honza/vim-snippets"})
+  use({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
+  use({'SirVer/ultisnips'})
+  use({'honza/vim-snippets'})
   
-  use({"williamboman/mason.nvim"})
+  use({'williamboman/mason.nvim'})
   use({'williamboman/mason-lspconfig.nvim'})
   use({'neovim/nvim-lspconfig'})
-  require'lspconfig'.gopls.setup{ "gopls" }
+  require'lspconfig'.gopls.setup{ 'gopls' }
 
   use({'simrat39/rust-tools.nvim'})
   use({'hrsh7th/nvim-cmp'})
-  -- LSP completion source:
   use({'hrsh7th/cmp-nvim-lsp'})
-  -- Useful completion sources:
   use({'hrsh7th/cmp-nvim-lua'})
   use({'hrsh7th/cmp-nvim-lsp-signature-help'})
   use({'hrsh7th/cmp-vsnip'})
   use({'hrsh7th/cmp-path'})
   use({'hrsh7th/cmp-buffer'})
   use({'hrsh7th/vim-vsnip'})
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
-}
 
+  -- use({'atelierbram/vim-colors_atelier-schemes'})
+  -- use({'liuchengxu/space-vim-dark'})
 
-  use({'atelierbram/vim-colors_atelier-schemes'})
   use({'robertmeta/nofrils'})
   use({'vim-test/vim-test'})
   use({'hashivim/vim-terraform'})
   use({'rmagatti/auto-session'})
   use({'ludovicchabant/vim-gutentags'})
-  -- use({'ervandew/supertab'})
   use({'preservim/nerdtree'})
-  use({'liuchengxu/space-vim-dark'})
   use({'junegunn/fzf', dir='~/.fzf'})
   use({'junegunn/fzf.vim'})
   use({'mhinz/vim-startify'})
@@ -42,12 +36,9 @@ return function(use)
   use({'ap/vim-buftabline'})
   use({'airblade/vim-gitgutter'})
   use({'majutsushi/tagbar'})
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
+  use {'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
   use({'arkav/lualine-lsp-progress'})
-  require('lualine').setup {
+  require('lualine').setup({
     options = { theme = 'palenight' },
     sections = {
       lualine_b ={ {'filename', path=1} },
@@ -62,8 +53,7 @@ return function(use)
       lualine_d = {},
       lualine_e = {},
     }
-
-  }
+  })
   use({'voldikss/vim-floaterm'})
   use({'fatih/vim-go'})
   use({'whatyouhide/vim-gotham'})
@@ -74,44 +64,33 @@ return function(use)
   use({'gf3/peg.vim'})
   use({'nvim-lua/plenary.nvim'})
 
-
-  use({
-    'nvim-telescope/telescope.nvim',
-    --commit="c1a2af0",
-    config = function () require('telescope').setup{ file_ignore_patterns = {"node_modules","./venv/"} } end
-  })
+  use({ 'nvim-telescope/telescope.nvim', config = function () require('telescope').setup{ file_ignore_patterns = {'node_modules','./venv/'} } end })
   use({'nvim-telescope/telescope-project.nvim'})
   -- require'telescope'.load_extension('project')
-
-
 
   use({'puremourning/vimspector'})
  	use({'nvim-treesitter/nvim-treesitter-refactor'})
 	use({'RRethy/nvim-treesitter-textsubjects'})
-  -- use({'airblade/vim-rooter'})
+  use({'airblade/vim-rooter'})
 
   -- Debugging
   use 'mfussenegger/nvim-dap'
 
-  local rt = require("rust-tools")
-
+  local rt = require('rust-tools')
   rt.setup({
     server = {
       on_attach = function(_, bufnr)
         -- Hover actions
-        vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+        vim.keymap.set('n', '<C-space>', rt.hover_actions.hover_actions, { buffer = bufnr })
         -- Code action groups
-        vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+        vim.keymap.set('n', '<Leader>a', rt.code_action_group.code_action_group, { buffer = bufnr })
       end,
     },
   })
+  use({'lukas-reineke/indent-blankline.nvim'})
 
-  use({"lukas-reineke/indent-blankline.nvim"})
-
-
-
-  use({"fredeeb/tardis.nvim", config = true })
-  require('tardis-nvim').setup {
+  use({'fredeeb/tardis.nvim', config = true })
+  require('tardis-nvim').setup({
     keymap = {
         next = '<C-n>',       -- next entry in log (older)
         prev = '<C-m>',       -- previous entry in log (newer)
@@ -119,6 +98,6 @@ return function(use)
         commit_message = 'm', -- show commit message for current commit in buffer
     },
     commits = 32,             -- max number of commits to read
-  }
+  })
 
 end
