@@ -1,17 +1,6 @@
 vim.cmd([[autocmd BufWritePost plugins.lua PackerCompile]])
 
 return function(use)
-  -- Prevents reinstall of treesitter plugins every boot
-  -- local parser_install_dir = vim.fn.stdpath("cache") .. "/treesitters"
-  -- vim.fn.mkdir(parser_install_dir, "p")
-  -- vim.opt.runtimepath:append(parser_install_dir)
-
-  -- -- Treesitter is managed by the package config, we just manage configs/deps here
-  -- use({ "nvim-treesitter/nvim-treesitter-refactor" })
-  -- use({ "RRethy/nvim-treesitter-textsubjects" })
-  -- require("nvim-treesitter.configs").setup({
-  --   parser_install_dir = parser_install_dir,
-  -- })
   use({"SirVer/ultisnips"})
   use({"honza/vim-snippets"})
   
@@ -31,7 +20,10 @@ return function(use)
   use({'hrsh7th/cmp-path'})
   use({'hrsh7th/cmp-buffer'})
   use({'hrsh7th/vim-vsnip'})
-  use({'nvim-treesitter/nvim-treesitter'})
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+}
 
 
   use({'atelierbram/vim-colors_atelier-schemes'})
@@ -85,7 +77,7 @@ return function(use)
 
   use({
     'nvim-telescope/telescope.nvim',
-    commit="c1a2af0",
+    --commit="c1a2af0",
     config = function () require('telescope').setup{ file_ignore_patterns = {"node_modules","./venv/"} } end
   })
   use({'nvim-telescope/telescope-project.nvim'})
@@ -115,4 +107,18 @@ return function(use)
   })
 
   use({"lukas-reineke/indent-blankline.nvim"})
+
+
+
+  use({"fredeeb/tardis.nvim", config = true })
+  require('tardis-nvim').setup {
+    keymap = {
+        next = '<C-n>',       -- next entry in log (older)
+        prev = '<C-m>',       -- previous entry in log (newer)
+        quit = 'q',           -- quit all
+        commit_message = 'm', -- show commit message for current commit in buffer
+    },
+    commits = 32,             -- max number of commits to read
+  }
+
 end
