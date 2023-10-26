@@ -1,7 +1,6 @@
 vim.cmd([[autocmd BufWritePost plugins.lua PackerCompile]])
 
 return function(use)
-  use({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
   use({'SirVer/ultisnips'})
   use({'honza/vim-snippets'})
   
@@ -69,8 +68,6 @@ return function(use)
   -- require'telescope'.load_extension('project')
 
   use({'puremourning/vimspector'})
- 	use({'nvim-treesitter/nvim-treesitter-refactor'})
-	use({'RRethy/nvim-treesitter-textsubjects'})
   use({'airblade/vim-rooter'})
 
   -- Debugging
@@ -100,4 +97,13 @@ return function(use)
     commits = 32,             -- max number of commits to read
   })
 
+  use({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' })
+ 	use({'nvim-treesitter/nvim-treesitter-refactor'})
+	use({'RRethy/nvim-treesitter-textsubjects'})
+  require("nvim-treesitter.configs").setup({
+    highlight = { enable = true, disable = { "lua" } },
+    indent = { enable = true },
+    refactor = { highlight_definitions = { enable = true } },
+    matchup = { enable = true },
+  })
 end
