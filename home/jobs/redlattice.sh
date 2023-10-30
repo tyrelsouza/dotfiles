@@ -9,8 +9,10 @@ function rl() {
 }
 
 
-function gsub() {
+function rl-gsub() {
   git submodule update --init --recursive --remote
 }
 
-alias portalshell="docker-compose -f docker-compose.yml exec portald bash"
+function rl-portalshell() {
+  docker-compose -f /Users/tyrel/rl/vail-dev/docker-compose.yml exec portald bash
+}

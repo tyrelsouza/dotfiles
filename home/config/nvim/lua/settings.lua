@@ -43,7 +43,7 @@ vim.opt.undofile = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-vim.cmd 'colorscheme jellybeans'
+vim.cmd 'colorscheme Atelier_SulphurpoolDark'
 vim.g.floaterm_keymap_toggle = '<F9>'
 vim.g.floaterm_width = 0.9
 vim.g.floaterm_height = 0.9
@@ -116,10 +116,11 @@ vim.api.nvim_set_keymap("n", "<Leader>bq",":bp <BAR> bd #<CR>", {silent=true})
 vim.api.nvim_set_keymap("n", "<Leader>ff", ":Telescope find_files<cr>", {silent=true})
 vim.api.nvim_set_keymap("n", "<Leader>fg", ":Telescope live_grep<cr>", {silent=true})
 vim.api.nvim_set_keymap("n", "<Leader>fb", ":Telescope buffers<cr>", {silent=true})
-vim.api.nvim_set_keymap("n", "<Leader>fp", ":Telescope projects<cr>", {silent=true})
 vim.api.nvim_set_keymap("n", "<Leader>fa", ":Ag<cr>", {silent=true})
 
-vim.api.nvim_set_keymap("n", "<leader>gb",":.GBrowse<CR>", {silent=true})
+-- vim.api.nvim_set_keymap("n", "<Leader>fp", ":Telescope projects<cr>", {silent=true})
+-- vim.api.nvim_set_keymap("n", "<leader>gb",":.GBrowse<CR>", {silent=true})
+-- vim.api.nvim_set_keymap("n", "<F2>",":SearchSession<CR>", {silent = true })
 
 vim.api.nvim_set_keymap("n", "<C-J>", ":bprev<CR>", {silent = true})
 vim.api.nvim_set_keymap("n", "<C-K>", ":bnext<CR>", {silent = true})
@@ -127,7 +128,6 @@ vim.api.nvim_set_keymap("n", "<C-o>", ":NERDTreeToggle<CR>", {silent = true})
 
 vim.api.nvim_set_keymap("n", "<F1>", ":set invnumber invrelativenumber<CR>", {silent = true })
 vim.api.nvim_set_keymap("i", "<F1>", "<Esc>", {silent = true })
-vim.api.nvim_set_keymap("n", "<F2>",":SearchSession<CR>", {silent = true })
 vim.api.nvim_set_keymap("n", "<F8>", ":Tagbar<CR>", {silent = true })
 
 

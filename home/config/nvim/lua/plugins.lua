@@ -19,7 +19,7 @@ return function(use)
   use({'hrsh7th/cmp-buffer'})
   use({'hrsh7th/vim-vsnip'})
 
-  -- use({'atelierbram/vim-colors_atelier-schemes'})
+  use({'atelierbram/vim-colors_atelier-schemes'})
   -- use({'liuchengxu/space-vim-dark'})
 
   use({'robertmeta/nofrils'})
