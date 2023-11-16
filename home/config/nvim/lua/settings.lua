@@ -131,5 +131,70 @@ vim.api.nvim_set_keymap("i", "<F1>", "<Esc>", {silent = true })
 vim.api.nvim_set_keymap("n", "<F8>", ":Tagbar<CR>", {silent = true })
 
 
+-- LSP Diagnostics Options Setup 
+local sign = function(opts)
+    vim.fn.sign_define(opts.name, {
+        texthl = opts.name,
+        text = opts.text,
+        numhl = ''
+    })
+end
 
+sign({name = 'DiagnosticSignError', text = ''})
+sign({name = 'DiagnosticSignWarn', text = ''})
+sign({name = 'DiagnosticSignHint', text = ''})
+sign({name = 'DiagnosticSignInfo', text = ''})
+
+vim.diagnostic.config({
+    virtual_text = false,
+    signs = true,
+    update_in_insert = true,
+    underline = true,
+    severity_sort = false,
+    float = {
+        border = 'rounded',
+        source = 'always',
+        header = '',
+        prefix = '',
+    },
+})
+
+vim.cmd([[
+set signcolumn=yes
+autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
+]])
+
+
+
+
+-- Vimspector
+-- KEYS
+vim.cmd([[
+nmap <Leader><F6> <cmd>call vimspector#Launch()<cr>
+nmap <Leader><F7> <cmd>call vimspector#StepOver()<cr>
+nmap <Leader><F4> <cmd>call vimspector#Reset()<cr>
+nmap <Leader><F11> <cmd>call vimspector#StepOver()<cr>
+nmap <Leader><F12> <cmd>call vimspector#StepOut()<cr>
+nmap <Leader><F10> <cmd>call vimspector#StepInto()<cr>
+nmap <Leader>Db <cmd>:call vimspector#ToggleBreakpoint()<cr>
+nmap <Leader>Dw <cmd>:call vimspector#AddWatch()<cr>
+nmap <Leader>De <cmd>:call vimspector#Evaluate()<cr>
+]])
+-- OPTS
+vim.opt.completeopt = {'menuone', 'noselect', 'noinsert'}
+vim.opt.shortmess = vim.opt.shortmess + { c = true}
+vim.api.nvim_set_option('updatetime', 300) 
+-- Fixed column for diagnostics to appear
+-- Show autodiagnostic popup on cursor hover_range
+-- Goto previous / next diagnostic warning / error 
+-- Show inlay_hints more frequently 
+vim.cmd([[
+set signcolumn=yes
+autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
+]])
+vim.cmd([[
+let g:vimspector_sidebar_width = 85
+let g:vimspector_bottombar_height = 15
+let g:vimspector_terminal_maxwidth = 70
+]])
 
