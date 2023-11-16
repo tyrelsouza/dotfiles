@@ -63,13 +63,13 @@ return {
         },
         -- Installed sources:
         sources = {
-          { name = 'path' },                       -- file paths
+          { name = 'path' },                                       -- file paths
           { name = 'nvim_lsp',               keyword_length = 3 }, -- from language server
-          { name = 'nvim_lsp_signature_help' },    -- display function signatures with current parameter emphasized
+          { name = 'nvim_lsp_signature_help' },                    -- display function signatures with current parameter emphasized
           { name = 'nvim_lua',               keyword_length = 2 }, -- complete neovim's Lua runtime API such vim.lsp.*
           { name = 'buffer',                 keyword_length = 2 }, -- source current buffer
           { name = 'vsnip',                  keyword_length = 2 }, -- nvim-cmp source for vim-vsnip
-          { name = 'calc' },                       -- source for math calculation
+          { name = 'calc' },                                       -- source for math calculation
         },
         window = {
           completion = cmp.config.window.bordered(),
@@ -108,14 +108,19 @@ return {
   { 'rmagatti/auto-session' },
   { 'ludovicchabant/vim-gutentags' },
   { 'preservim/nerdtree' },
-  { 'junegunn/fzf',                          dir = '~/.fzf' },
+  { 'junegunn/fzf' }, -- FIXME: Not sure what this does? dir = '~/.fzf'
   { 'junegunn/fzf.vim' },
   { 'mhinz/vim-startify' },
   { 'jeetsukumaran/vim-buffergator' },
   { 'ap/vim-buftabline' },
   { 'airblade/vim-gitgutter' },
   { 'majutsushi/tagbar' },
-  { 'nvim-lualine/lualine.nvim',             requires = { 'kyazdani42/nvim-web-devicons', opt = true } },
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = {
+      { 'kyazdani42/nvim-web-devicons', lazy = true },
+    }
+  },
   {
     'arkav/lualine-lsp-progress',
     config = function()
@@ -146,9 +151,13 @@ return {
   { 'tpope/vim-rhubarb' },
   { 'gf3/peg.vim' },
   { 'nvim-lua/plenary.nvim' },
-  { 'nvim-telescope/telescope.nvim',
-                                              config = function() require('telescope').setup { file_ignore_patterns = {
-        'node_modules', './venv/' } } end },
+  {
+    'nvim-telescope/telescope.nvim',
+    config = function()
+      require('telescope').setup { file_ignore_patterns = {
+        'node_modules', './venv/' } }
+    end
+  },
   { 'nvim-telescope/telescope-project.nvim' },
   -- require'telescope'.load_extension('project')
 
@@ -165,19 +174,19 @@ return {
     config = function()
       require('tardis-nvim').setup({
         keymap = {
-          next = '<C-n>',         -- next entry in log (older)
-          prev = '<C-m>',         -- previous entry in log (newer)
-          quit = 'q',             -- quit all
-          commit_message = 'm',   -- show commit message for current commit in buffer
+          next = '<C-n>',       -- next entry in log (older)
+          prev = '<C-m>',       -- previous entry in log (newer)
+          quit = 'q',           -- quit all
+          commit_message = 'm', -- show commit message for current commit in buffer
         },
-        commits = 32,             -- max number of commits to read
+        commits = 32,           -- max number of commits to read
       })
     end
   },
 
   {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate',
+    build = ':TSUpdate',
     config = function()
       require("nvim-treesitter.configs").setup({
         highlight = { enable = true, disable = { "lua" } },
