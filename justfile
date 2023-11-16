@@ -19,6 +19,9 @@ setup-ubuntu:
 	NIX_PATH={{NIXPATH}} nix-channel --update
 	NIX_PATH={{NIXPATH}} nix-shell '<home-manager>' -A install
 
+update-hm:
+	NIX_PATH={{NIXPATH}} nix-shell '<home-manager>' -A update
+
 setup-debian:
 	NIX_PATH={{NIXPATH}} nix-channel --add https://nixos.org/channels/nixos-22.11 nixos
 	NIX_PATH={{NIXPATH}} nix-channel --add https://github.com/nix-community/home-manager/archive/release-22.11.tar.gz home-manager 

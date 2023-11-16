@@ -1,4 +1,3 @@
-require("settings")
 
 vim.g.python3_host_prog = '/opt/nvimpython/.nvim.pythonenv/bin/python3'
 
@@ -173,3 +172,4 @@ return require('packer').startup(function(use)
   ]])
 end)
 
+require("settings")
