@@ -1,8 +1,9 @@
 #!/bin/bash
 
 sudo apt update
-sudo apt install python3 python3.10-venv zsh nitch
-chsh -s /bin/zsh
+sudo apt install python3 python3-venv zsh
+
+sudo curl https://pyenv.run | bash
 
 ln -s home/config $HOME/.config
 ln -s home/bin $HOME/bin
